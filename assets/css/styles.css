@@ -74,34 +74,36 @@ img {
   z-index: 1;
   width: min(100% - 1.5rem, 28rem);
   margin: 0 auto;
-  padding: 1.25rem 0 calc(2rem + var(--safe-bottom));
+  padding: 0.35rem 0 calc(2rem + var(--safe-bottom));
 }
 
 /* —— Hero (one composition) —— */
 .hero {
   position: relative;
-  min-height: min(92dvh, 52rem);
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 1.5rem 0 1.75rem;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0.35rem;
+  padding: 0.15rem 0 1.25rem;
   overflow: hidden;
 }
 
 .hero-visual {
-  position: absolute;
-  inset: 0;
+  position: relative;
   z-index: 0;
   pointer-events: none;
+  margin: 0;
+  padding: 0;
+  min-height: 0;
 }
 
 .hero-visual .duckies {
-  position: absolute;
-  left: 50%;
-  top: 8%;
-  width: min(92%, 22rem);
-  transform: translateX(-50%);
-  filter: drop-shadow(0 16px 28px rgba(30, 43, 36, 0.18));
+  position: relative;
+  display: block;
+  width: min(94%, 22rem);
+  margin: 0 auto;
+  filter: drop-shadow(0 12px 22px rgba(30, 43, 36, 0.16));
   animation: float-in 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -110,22 +112,23 @@ img {
   border-radius: 50%;
   filter: blur(2px);
   animation: soft-pulse 6s ease-in-out infinite;
+  z-index: -1;
 }
 
 .hero-visual .sky-blob.a {
-  width: 12rem;
-  height: 12rem;
+  width: 10rem;
+  height: 10rem;
   background: rgba(240, 164, 92, 0.35);
-  top: -2rem;
-  right: -3rem;
+  top: -1.5rem;
+  right: -2.5rem;
 }
 
 .hero-visual .sky-blob.b {
-  width: 9rem;
-  height: 9rem;
+  width: 8rem;
+  height: 8rem;
   background: rgba(155, 184, 150, 0.4);
-  top: 28%;
-  left: -4rem;
+  top: 35%;
+  left: -3.5rem;
   animation-delay: -2s;
 }
 
@@ -133,8 +136,13 @@ img {
   position: relative;
   z-index: 1;
   text-align: center;
-  padding-top: 42vh;
+  padding-top: 0.15rem;
+  margin-top: 0;
   animation: rise 0.9s 0.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-copy .hero-meta {
+  margin-top: 0;
 }
 
 .brand {
@@ -160,7 +168,7 @@ img {
 }
 
 .hero-meta {
-  margin: 0.55rem 0 0;
+  margin: 0 0 0.35rem;
   font-size: 0.85rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -172,7 +180,7 @@ img {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
-  margin-top: 1.5rem;
+  margin-top: 1.1rem;
   align-items: stretch;
 }
 
@@ -607,11 +615,11 @@ img {
 @keyframes float-in {
   from {
     opacity: 0;
-    transform: translateX(-50%) translateY(1.5rem) scale(0.96);
+    transform: translateY(0.85rem) scale(0.97);
   }
   to {
     opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(1);
+    transform: translateY(0) scale(1);
   }
 }
 
