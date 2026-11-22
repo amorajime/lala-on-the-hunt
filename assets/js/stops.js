@@ -53,7 +53,7 @@ window.LALA_STOPS = [
     mapsQuery: "Cam. de la Vega 20, Valdetorres de Jarama",
     clue:
       "Hoy el partido sois vosotras. Encontrad el campo de hierba — un sitio amplio para celebrar en movimiento (sin pisar el césped si está cerrado).",
-    task: "Foto de grupo junto al campo (exterior / acceso público).",
+    task: "Lala posa imitando a su futbolista favorito delante del campo.",
     garySlot: "Gary EN · nota 3",
     garyPlaceholder:
       "[Gary — escribe aquí la nota en inglés para el campo de fútbol. Aparece tras pulsar Hecho.]",
