@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#4f6f52" />
+    <meta name="robots" content="noindex" />
+    <title>Lala on the Hunt · Amigas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body data-asset-base="../assets">
+    <main class="wrap">
+      <section class="gate" id="gate">
+        <img
+          id="duckies-img"
+          class="duckies-sm"
+          src="../assets/lala-duckies.png"
+          width="589"
+          height="283"
+          alt=""
+        />
+        <h1>Lala on the Hunt</h1>
+        <p>Solo para las amigas — no enseñéis esta pantalla a Lala.</p>
+        <form id="gate-form" autocomplete="off">
+          <label class="visually-hidden" for="password" style="position:absolute;left:-9999px"
+            >Contraseña</label
+          >
+          <input
+            id="password"
+            name="password"
+            type="password"
+            inputmode="text"
+            placeholder="Contraseña del grupo"
+            required
+            autofocus
+          />
+          <button class="btn btn-primary" type="submit">Entrar</button>
+          <p class="error" id="gate-error" role="status"></p>
+        </form>
+        <a class="link-quiet" href="../">Volver a la vista de Lala</a>
+      </section>
+
+      <section class="amigas-app" id="amigas-app" hidden>
+        <div class="quest-head">
+          <h1 style="font-family: var(--font-display); font-size: 1.55rem; margin: 0">
+            Itinerario completo
+          </h1>
+          <span class="badge">Amigas</span>
+        </div>
+        <p style="margin: 0 0 1rem; color: var(--ink-soft); font-size: 0.95rem">
+          Domingo 20 dic · convoy compartido · misma ruta · Lala cambia de coche entre paradas.
+        </p>
+        <div class="itinerary" id="itinerary"></div>
+        <div class="footer-tools">
+          <a class="link-quiet" href="../">Vista novia</a>
+          <button type="button" id="btn-lock">Cerrar sesión amigas</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="../assets/js/stops.js"></script>
+    <script src="../assets/js/progress.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/friends.js"></script>
+  </body>
+</html>

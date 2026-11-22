@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#c94b6a" />
+    <meta name="robots" content="noindex" />
+    <title>Lala on the Hunt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body data-asset-base="assets">
+    <main class="wrap">
+      <header class="hero" id="hero">
+        <div class="hero-visual" aria-hidden="true">
+          <div class="sky-blob a"></div>
+          <div class="sky-blob b"></div>
+          <img
+            id="duckies-img"
+            class="duckies"
+            src="assets/lala-duckies.png"
+            width="589"
+            height="283"
+            alt=""
+          />
+        </div>
+        <div class="hero-copy">
+          <p class="hero-meta">Despedida · Valdetorres de Jarama</p>
+          <h1 class="brand">Lala on <span>the Hunt</span></h1>
+          <p class="hero-lead">
+            Dos coches, una historia. Seguí el camino, una parada cada vez.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#hunt">Empezar la caza</a>
+          </div>
+        </div>
+      </header>
+
+      <section class="quest" id="hunt" aria-label="Camino de la novia">
+        <div class="quest-head">
+          <h1>Tu camino</h1>
+          <span class="badge">Modo novia</span>
+        </div>
+
+        <div class="start-banner" id="start-banner">
+          <strong>Punto de encuentro</strong>
+          Calle Jorge Manrique, 1 (Silillos) · ~13:15. Cuando el grupo esté listo, pulsad Empezar.
+          <div class="actions" style="margin-top: 0.75rem">
+            <button type="button" class="btn btn-primary btn-small" id="btn-start">
+              Empezar
+            </button>
+            <a
+              class="btn btn-maps btn-small"
+              target="_blank"
+              rel="noopener"
+              href="https://www.google.com/maps/search/?api=1&query=Calle%20Jorge%20Manrique%201%2C%20Valdetorres%20de%20Jarama"
+              >Maps · salida</a
+            >
+          </div>
+        </div>
+
+        <div class="map-stage" id="map-stage">
+          <div class="path-markers" id="path-markers"></div>
+        </div>
+
+        <div class="panel" id="stop-panel">
+          <div class="stop-code" id="stop-code">A1</div>
+          <h2 id="stop-title">Parada</h2>
+          <p class="address" id="stop-address"></p>
+          <p class="clue" id="stop-clue"></p>
+          <p class="task" id="stop-task"></p>
+          <p class="verify-flag" id="verify-flag" hidden></p>
+          <div class="gary-box" id="gary-box" hidden>
+            <p class="slot-label" id="gary-slot">Gary EN</p>
+            <p id="gary-text"></p>
+          </div>
+          <p class="swap-note" id="swap-note" hidden></p>
+          <p class="selfie-note" id="selfie-note">
+            Selfie opcional: queda solo en vuestro teléfono — no se sube a ninguna parte.
+          </p>
+          <div class="actions">
+            <a class="btn btn-maps" id="btn-maps" target="_blank" rel="noopener">Abrir en Maps</a>
+            <button type="button" class="btn btn-done" id="btn-done">Hecho</button>
+            <button type="button" class="btn btn-primary" id="btn-continue" hidden>
+              Siguiente parada
+            </button>
+          </div>
+        </div>
+
+        <div class="panel complete-banner" id="all-done" hidden>
+          <h2>¡Caza completada!</h2>
+          <p>
+            Disfrutad la comida, la carta y el regalo. Os queremos, Lala.
+          </p>
+          <img
+            src="assets/lala-duckies.png"
+            alt="Party duck y bride duck"
+            width="280"
+            style="margin: 1rem auto 0"
+          />
+        </div>
+
+        <div class="footer-tools">
+          <a class="link-quiet" href="amigas/">¿Sois las amigas?</a>
+          <button type="button" id="btn-reset">Reiniciar progreso</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="assets/js/stops.js"></script>
+    <script src="assets/js/progress.js"></script>
+    <script src="assets/js/map.js"></script>
+    <script src="assets/js/bride.js"></script>
+  </body>
+</html>
