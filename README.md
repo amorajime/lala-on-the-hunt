@@ -10,7 +10,7 @@ Static Spanish-language scavenger hunt site for Lala’s bachelorette in Valdeto
 
 | Route | Who | Notes |
 |---|---|---|
-| `/` or `/novia/` | Lala (bride) | Quiz start → stops → mood → car roulette → notes; progress in `localStorage` |
+| `/` or `/novia/` | Lala (bride) | Quiz start → challenge → mood → Gary note → car roulette; finale: quiz → mood → success (no digital letter) |
 | `/amigas/` | Friends / hosts | Password-gated full itinerary + host tips + mood trail |
 
 **Friends password:** `LalaMala1` (client-side SHA-256 check — fine for a party toy, not real security).
@@ -70,7 +70,7 @@ After each stop, bride picks 💚 / 😂 / 🥹. Stored in `localStorage` (`mood
 
 ### Car swap roulette
 
-After **Hecho** on A1 / A2 / B3 (not finale): spin lands on **Coche A** or **Coche B** only (no names).
+After **Hecho** on A1 / A2 / B3 (not finale): mood → Gary note → spin **Coche A** or **Coche B** (no names). Bride UI has no Maps buttons (amigas keeps Maps).
 
 ### Password hash
 

@@ -57,13 +57,6 @@
             <button type="button" class="btn btn-primary btn-small" id="btn-start" hidden>
               Empezar
             </button>
-            <a
-              class="btn btn-maps btn-small"
-              target="_blank"
-              rel="noopener"
-              href="https://www.google.com/maps/search/?api=1&query=Calle%20Jorge%20Manrique%201%2C%20Valdetorres%20de%20Jarama"
-              >Maps · salida</a
-            >
           </div>
         </div>
 
@@ -105,11 +98,9 @@
             <p id="gary-text"></p>
           </div>
           <p class="swap-note" id="swap-note" hidden></p>
-          <p class="selfie-note" id="selfie-note">
-            Selfie opcional: queda solo en vuestro teléfono — no se sube a ninguna parte.
-          </p>
+          <p class="selfie-note" id="selfie-note" hidden></p>
+          <a class="btn btn-maps" id="btn-maps" hidden tabindex="-1" aria-hidden="true"></a>
           <div class="actions">
-            <a class="btn btn-maps" id="btn-maps" target="_blank" rel="noopener">Abrir en Maps</a>
             <button type="button" class="btn btn-done" id="btn-done">Hecho</button>
             <button type="button" class="btn btn-primary" id="btn-continue" hidden>
               Siguiente parada
@@ -118,11 +109,14 @@
         </div>
 
         <div class="panel complete-banner" id="all-done" hidden>
-          <h2>¡Caza completada!</h2>
+          <h2>¡Lo lograsteis!</h2>
           <p>
-            Disfrutad la comida, la carta y el regalo. Os queremos, Lala.
+            La caza de Lala ha terminado. Disfrutad la mesa, la sorpresa impresa y la comida. Os queremos.
           </p>
           <div id="all-done-mood"></div>
+          <button type="button" class="btn btn-primary" id="btn-finish-ok" style="margin-top: 1rem">
+            Terminar
+          </button>
           <img
             src="../assets/lala-duckies.png"
             alt="Party duck y bride duck"

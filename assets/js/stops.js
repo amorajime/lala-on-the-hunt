@@ -21,8 +21,8 @@ window.LALA_STOPS = [
     garyPlaceholder:
       "[Gary — escribe aquí la nota en inglés para el Parque. Aparece tras pulsar Hecho.]",
     hostTip:
-      "Aparcamiento para dos coches cerca. Caminos llanos. El reto es solo la canción + baile/lip-sync (botón Bailar 10s). Tras Hecho: ruleta Coche A / Coche B.",
-    swapNote: "Tras esta parada: ruleta de coches (A o B).",
+      "Aparcamiento para dos coches cerca. Caminos llanos. Reto: canción + baile/lip-sync. Tras Hecho: mood → nota Gary → ruleta A/B.",
+    swapNote: "Después de la nota de Gary: ruleta de coches (A o B).",
     soundtrack: true,
   },
   {
@@ -42,8 +42,8 @@ window.LALA_STOPS = [
     garyPlaceholder:
       "[Gary — escribe aquí la nota en inglés para la Plaza / Ayuntamiento. Aparece tras pulsar Hecho.]",
     hostTip:
-      "Preparad el rosco / fichas del Alphabet Game antes de llegar. Plaza llana, sin entrar al Ayuntamiento. Tras Hecho: ruleta Coche A / Coche B.",
-    swapNote: "Tras esta parada: ruleta de coches (A o B).",
+      "Preparad el rosco / fichas del Alphabet Game antes de llegar. Plaza llana, sin entrar al Ayuntamiento. Tras Hecho: mood → nota Gary → ruleta A/B.",
+    swapNote: "Después de la nota de Gary: ruleta de coches (A o B).",
   },
   {
     id: "b3",
@@ -61,8 +61,8 @@ window.LALA_STOPS = [
     garyPlaceholder:
       "[Gary — escribe aquí la nota en inglés para el campo de fútbol. Aparece tras pulsar Hecho.]",
     hostTip:
-      "Parking/acceso confirmado por Ana: Cam. de la Vega, 20. Tras Hecho: ruleta Coche A / Coche B → American Ribs. Opcional: brindis de 30 s.",
-    swapNote: "Tras esta parada: ruleta de coches (A o B) → American Ribs.",
+      "Parking/acceso: Cam. de la Vega, 20. Tras Hecho: mood → nota Gary → ruleta A/B → American Ribs. Opcional: brindis de 30 s.",
+    swapNote: "Después de la nota de Gary: ruleta (A o B) → American Ribs.",
   },
   {
     id: "finale",
@@ -74,13 +74,13 @@ window.LALA_STOPS = [
     lng: -3.513482,
     mapsQuery: "American Ribs, Plaza de José Antonio 5, Valdetorres de Jarama",
     clue:
-      "Última parada. No abráis la carta ni el regalo hasta estar sentadas. La caza termina en la mesa — con risas, un brindis y la sorpresa de Gary.",
-    task: "Sentaros juntas (~14:30). Foto de grupo · brindis · carta + regalo.",
-    garySlot: "Gary · carta final + regalo",
-    garyPlaceholder:
-      "[Gary — aquí va la carta de amor en inglés + tema del regalo. Leer en la mesa.]",
+      "La caza de Lala está casi terminada. Sentémonos, pidamos algo de beber y respondamos una pregunta para revelar la última sorpresa.",
+    task:
+      "Sentaros, pedid bebida y pulsad Hecho — luego una pregunta desbloquea el final.",
+    garySlot: "Gary · sorpresa en mesa",
+    garyPlaceholder: "",
     hostTip:
-      "Reserva 7 · ~14:30–15:00. La carta y el regalo los lleva Gus. Se desbloquean con el quiz final.",
+      "Reserva 7 · ~14:30–15:00. Carta impresa IRL (Gus). En la web: quiz → mood → mensaje de éxito (sin carta digital).",
     swapNote: null,
     isFinale: true,
   },
@@ -114,7 +114,7 @@ window.LALA_QUIZ = {
     title: "Quiz de pareja · carta y regalo",
     /* Q2 only — Gossip Gang */
     questions: [window.LALA_COUPLE_QUESTIONS[1]],
-    anaNote: "Esta respuesta desbloquea carta + regalo.",
+    anaNote: "Esta respuesta desbloquea el final (la carta está impresa en la mesa).",
   },
 };
 
@@ -139,7 +139,7 @@ window.LALA_META = {
   startAddress: "Calle Jorge Manrique, 1 (Silillos)",
   startMapsQuery: "Calle Jorge Manrique 1, Valdetorres de Jarama",
   convoyNote:
-    "Convoy compartido: mismas paradas, dos coches solo por asientos. Tras cada Hecho, la ruleta elige Coche A o Coche B.",
+    "Convoy compartido: mismas paradas, dos coches solo por asientos. Tras cada Hecho: mood → nota Gary → ruleta Coche A/B.",
   storageKey: "lala-on-the-hunt-progress-v2",
   authStorageKey: "lala-amigas-unlocked-v1",
   /* SHA-256 of the party password — not the plaintext */
