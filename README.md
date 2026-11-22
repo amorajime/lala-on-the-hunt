@@ -84,7 +84,7 @@ Duckies: `assets/lala-duckies.png` · Styles: `assets/css/styles.css`.
 
 ## Stops (shared route)
 
-1. **A1** Parque Julián González Rodríguez — selfie with green + soundtrack dance  
+1. **A1** Parque Julián González Rodríguez — soundtrack dance / lip-sync only  
 2. **A2** Ayuntamiento / Plaza de la Constitución — Pasapalabra / Alphabet Game for Lala  
 3. **B3** Campo de fútbol — parking **Cam. de la Vega, 20** — Lala soccer-player pose  
 4. **Finale** American Ribs, Pl. de José Antonio 5 — quiz → letter/gift + lunch ~14:30  

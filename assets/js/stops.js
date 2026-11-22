@@ -14,13 +14,14 @@ window.LALA_STOPS = [
     lng: -3.512548,
     mapsQuery: "Parque Julián González Rodríguez, Valdetorres de Jarama",
     clue:
-      "Buscad un rincón con verde a vuestro alrededor. El pueblo os recibe con calma — respirad, reíd, y capturad el primer recuerdo juntas.",
-    task: "Selfie de grupo con algo verde en el encuadre.",
+      "El pueblo os recibe con ritmo. Poned la canción de Gary, subid el volumen (con respeto al parque) y que el cuerpo haga el resto.",
+    task:
+      "Banda sonora: abrid la canción, bailad o haced lip-sync ~10s juntas — luego Hecho.",
     garySlot: "Gary · nota 1",
     garyPlaceholder:
       "[Gary — escribe aquí la nota en inglés para el Parque. Aparece tras pulsar Hecho.]",
     hostTip:
-      "Aparcamiento para dos coches cerca. Caminos llanos. Tras Hecho: ruleta Coche A / Coche B.",
+      "Aparcamiento para dos coches cerca. Caminos llanos. El reto es solo la canción + baile/lip-sync (botón Bailar 10s). Tras Hecho: ruleta Coche A / Coche B.",
     swapNote: "Tras esta parada: ruleta de coches (A o B).",
     soundtrack: true,
   },
