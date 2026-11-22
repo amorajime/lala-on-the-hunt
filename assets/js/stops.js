@@ -1,7 +1,7 @@
 /**
  * Lala on the Hunt — shared stop data
  * Edit Spanish copy, Maps pins, and Gary note placeholders here.
- * B3: Campo de fútbol municipal — Ana must verify pin / access.
+ * B3: Campo de fútbol — parking/access pin confirmed by Ana: Cam. de la Vega, 20.
  */
 window.LALA_STOPS = [
   {
@@ -47,10 +47,10 @@ window.LALA_STOPS = [
     code: "B3",
     title: "Campo de fútbol",
     shortTitle: "El campo",
-    address: "Camino de la Vega, 1 · Pvo. Municipal",
+    address: "Aparcamiento · Cam. de la Vega, 20 · junto al campo",
     lat: 40.695747,
     lng: -3.51754,
-    mapsQuery: "Campo de fútbol Camino de la Vega 1, Valdetorres de Jarama",
+    mapsQuery: "Cam. de la Vega 20, Valdetorres de Jarama",
     clue:
       "Hoy el partido sois vosotras. Encontrad el campo de hierba — un sitio amplio para celebrar en movimiento (sin pisar el césped si está cerrado).",
     task: "Foto de grupo junto al campo (exterior / acceso público).",
@@ -58,9 +58,8 @@ window.LALA_STOPS = [
     garyPlaceholder:
       "[Gary — escribe aquí la nota en inglés para el campo de fútbol. Aparece tras pulsar Hecho.]",
     hostTip:
-      "⚠️ Ana: verificar pin, aparcamiento y acceso público. Coordenadas provisionales 40.695747, −3.517540. Opcional: brindis de 30 s si hay energía.",
+      "Parking/acceso confirmado por Ana: Cam. de la Vega, 20. Parada = campo de fútbol (Maps abre el pin de aparcamiento). Opcional: brindis de 30 s si hay energía.",
     swapNote: "Tras esta parada: Lala cambia al Coche 2 → American Ribs.",
-    needsVerify: true,
   },
   {
     id: "finale",

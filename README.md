@@ -65,7 +65,7 @@ Styles: `assets/css/styles.css`.
 
 1. **A1** Parque Julián González Rodríguez — group selfie with green in frame  
 2. **A2** Ayuntamiento / Plaza de la Constitución — town-hall façade exterior  
-3. **B3** Campo de fútbol (Camino de la Vega, 1 · Pvo. Municipal) — group photo · **Ana: verify pin**  
+3. **B3** Campo de fútbol — parking **Cam. de la Vega, 20** (Ana confirmed) — group photo  
 4. **Finale** American Ribs, Pl. de José Antonio 5 — letter/gift + lunch ~14:30  
 
 Start: Calle Jorge Manrique, 1 (Silillos). Lala may switch cars between stops.
@@ -77,7 +77,7 @@ Start: Calle Jorge Manrique, 1 (Silillos). Lala may switch cars between stops.
 | Start | Calle Jorge Manrique 1 | Confirm Maps / Silillos |
 | A1 | Parque @ ~40.694321, −3.512548 (C. Calvario) | Parking + flat access |
 | A2 | Plaza Constitución / Ayuntamiento @ ~40.69513, −3.51243 | Exterior photo spot, 2-car parking |
-| **B3** | **Campo de fútbol · Camino de la Vega 1 @ 40.695747, −3.517540** | **Verify public access / parking** |
+| **B3** | **Campo de fútbol · parking Cam. de la Vega, 20** (Maps) | **Ana confirmed parking pin** |
 | Finale | American Ribs · Pl. José Antonio 5 @ 40.696003, −3.513482 | Sunday 20 Dec lunch hours + reserve 7 @ ~14:30 |
 
 ## Privacy notes
