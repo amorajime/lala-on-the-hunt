@@ -103,14 +103,16 @@ window.LALA_QUIZ = {
   start: {
     id: "start",
     title: "Quiz de pareja · empezar",
-    questions: window.LALA_COUPLE_QUESTIONS,
-    anaNote: "Escribid las respuestas (mayúsculas/minúsculas da igual).",
+    /* Q1 only — Rammstein */
+    questions: [window.LALA_COUPLE_QUESTIONS[0]],
+    anaNote: "Escribid la respuesta (mayúsculas/minúsculas da igual).",
   },
   finale: {
     id: "finale",
-    title: "Quiz de pareja · confirmar carta y regalo",
-    questions: window.LALA_COUPLE_QUESTIONS,
-    anaNote: "Misma confirmación que al inicio — desbloquea carta + regalo.",
+    title: "Quiz de pareja · carta y regalo",
+    /* Q2 only — Gossip Gang */
+    questions: [window.LALA_COUPLE_QUESTIONS[1]],
+    anaNote: "Esta respuesta desbloquea carta + regalo.",
   },
 };
 

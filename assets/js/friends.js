@@ -33,20 +33,18 @@
 
     const quizCard = document.createElement("article");
     quizCard.className = "leg";
-    const qs = (window.LALA_COUPLE_QUESTIONS || [])
-      .map(
-        (q, i) =>
-          `<p class="clue"><strong>Q${i + 1}:</strong> ${escapeHtml(q.prompt)}<br><span class="host-tip">Respuesta: ${escapeHtml(
-            (q.answers && q.answers[0]) || ""
-          )}</span></p>`
-      )
-      .join("");
+    const startQ = window.LALA_QUIZ.start.questions[0];
+    const finQ = window.LALA_QUIZ.finale.questions[0];
     quizCard.innerHTML = `
       <div class="stop-code">Quizzes</div>
       <h2>Preguntas de pareja</h2>
-      <p class="address">Mismas 2 preguntas al empezar y para desbloquear carta/regalo.</p>
-      ${qs}
-      <p class="host-tip">Editad <code>LALA_COUPLE_QUESTIONS</code> en <code>assets/js/stops.js</code>. Mayúsculas/tildes no importan.</p>
+      <p class="clue"><strong>Inicio:</strong> ${escapeHtml(startQ.prompt)}<br><span class="host-tip">Respuesta: ${escapeHtml(
+        (startQ.answers && startQ.answers[0]) || ""
+      )}</span></p>
+      <p class="clue"><strong>Finale (carta/regalo):</strong> ${escapeHtml(finQ.prompt)}<br><span class="host-tip">Respuesta: ${escapeHtml(
+        (finQ.answers && finQ.answers[0]) || ""
+      )}</span></p>
+      <p class="host-tip">Editad <code>LALA_COUPLE_QUESTIONS</code> / <code>LALA_QUIZ</code> en <code>assets/js/stops.js</code>. Mayúsculas/tildes no importan.</p>
     `;
     host.appendChild(quizCard);
 

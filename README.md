@@ -48,15 +48,14 @@ Settings → Pages → Build and deployment → Deploy from a branch → `main` 
 
 ### Couple quiz
 
-Edit `window.LALA_COUPLE_QUESTIONS` in `stops.js` (shared by start + finale gates):
+Edit `window.LALA_COUPLE_QUESTIONS` in `stops.js`:
 
-| # | Question | Answer |
+| Gate | Question | Answer |
 |---|---|---|
-| 1 | ¿Cuál fue el primer concierto al que fuiste con Gary? | **Rammstein** |
-| 2 | ¿Cómo se llama el grupo en el que hablaste con Gary por primera vez? | **Gossip Gang** |
+| **Start** (`LALA_QUIZ.start`) | ¿Cuál fue el primer concierto al que fuiste con Gary? | **Rammstein** |
+| **Finale** (`LALA_QUIZ.finale`) | ¿Cómo se llama el grupo en el que hablaste con Gary por primera vez? | **Gossip Gang** |
 
-Answers are free-text; case and accents are normalized (`Rammstein` / `rammstein` both work).  
-`LALA_QUIZ.start` and `LALA_QUIZ.finale` both reuse this list (finale = confirm before letter/gift).
+Answers are free-text; case and accents are normalized (`Rammstein` / `rammstein` both work). One question per gate.
 
 ### Soundtrack stop 1
 
