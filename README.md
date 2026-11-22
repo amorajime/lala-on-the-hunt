@@ -33,15 +33,11 @@ Then open:
 
 ## GitHub Pages
 
-This repo deploys from the `main` branch root via GitHub Actions (`.github/workflows/pages.yml`).
+**Live:** https://amorajime.github.io/lala-on-the-hunt/
 
-Manual fallback (Settings → Pages):
+Pages is enabled from **branch `main` / root (`/`)**. Every push to `main` republishes.
 
-1. **Source:** Deploy from a branch  
-2. **Branch:** `main` / `/` (root)  
-3. Save — site will appear at `https://amorajime.github.io/lala-on-the-hunt/`
-
-Or keep the Actions workflow: Settings → Pages → Source → **GitHub Actions**.
+To re-check in the GitHub UI: **Settings → Pages → Build and deployment** → Deploy from a branch → `main` / `/ (root)`.
 
 ## Edit stops & copy
 
