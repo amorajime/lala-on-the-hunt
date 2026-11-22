@@ -85,7 +85,7 @@ Duckies: `assets/lala-duckies.png` · Styles: `assets/css/styles.css`.
 ## Stops (shared route)
 
 1. **A1** Parque Julián González Rodríguez — selfie with green + soundtrack dance  
-2. **A2** Ayuntamiento / Plaza de la Constitución — town-hall façade exterior  
+2. **A2** Ayuntamiento / Plaza de la Constitución — Pasapalabra / Alphabet Game for Lala  
 3. **B3** Campo de fútbol — parking **Cam. de la Vega, 20** — Lala soccer-player pose  
 4. **Finale** American Ribs, Pl. de José Antonio 5 — quiz → letter/gift + lunch ~14:30  
 
@@ -97,7 +97,7 @@ Start: Calle Jorge Manrique, 1 (Silillos).
 |---|---|---|
 | Start | Calle Jorge Manrique 1 | Confirm Maps / Silillos |
 | A1 | Parque @ ~40.694321, −3.512548 | Parking + flat access |
-| A2 | Ayuntamiento @ ~40.69513, −3.51243 | Exterior photo, 2-car parking |
+| A2 | Ayuntamiento @ ~40.69513, −3.51243 | Plaza for Pasapalabra; 2-car parking |
 | **B3** | **Parking Cam. de la Vega, 20** | **Ana confirmed** |
 | Finale | American Ribs · Pl. José Antonio 5 | Sunday lunch + reserve 7 @ ~14:30 |
 

@@ -34,13 +34,14 @@ window.LALA_STOPS = [
     lng: -3.51243,
     mapsQuery: "Plaza de la Constitución 1, Valdetorres de Jarama",
     clue:
-      "El corazón del pueblo. Mirad la fachada del Ayuntamiento desde fuera — sin subir escaleras. Hoy el balcón es solo decorado: vosotras sois la historia.",
-    task: "Foto de la fachada exterior del Ayuntamiento (todo el grupo en el encuadre si podéis).",
+      "El corazón del pueblo… y del abecedario. En la plaza, las amigas preparan un Pasapalabra express: letras, risas y cero escaleras.",
+    task:
+      "Pasapalabra de Lala: las amigas montan un Alphabet Game rápido en la plaza. Lala responde letra a letra — ¡pasapalabra si se atasca!",
     garySlot: "Gary · nota 2",
     garyPlaceholder:
       "[Gary — escribe aquí la nota en inglés para la Plaza / Ayuntamiento. Aparece tras pulsar Hecho.]",
     hostTip:
-      "Solo exterior. Sin escaleras. Dos coches cerca de la plaza. Tras Hecho: ruleta Coche A / Coche B.",
+      "Preparad el rosco / fichas del Alphabet Game antes de llegar. Plaza llana, sin entrar al Ayuntamiento. Tras Hecho: ruleta Coche A / Coche B.",
     swapNote: "Tras esta parada: ruleta de coches (A o B).",
   },
   {
