@@ -6,7 +6,7 @@
 window.LALA_STOPS = [
   {
     id: "a1",
-    code: "A1",
+    code: "Primera Parada",
     title: "Parque Julián González Rodríguez",
     shortTitle: "El parque",
     address: "C. del Calvario · Valdetorres de Jarama",
@@ -16,7 +16,7 @@ window.LALA_STOPS = [
     clue:
       "Buscad un rincón con verde a vuestro alrededor. El pueblo os recibe con calma — respirad, reíd, y capturad el primer recuerdo juntas.",
     task: "Selfie de grupo con algo verde en el encuadre.",
-    garySlot: "Gary EN · nota 1",
+    garySlot: "Gary · nota 1",
     garyPlaceholder:
       "[Gary — escribe aquí la nota en inglés para el Parque. Aparece tras pulsar Hecho.]",
     hostTip:
@@ -25,7 +25,7 @@ window.LALA_STOPS = [
   },
   {
     id: "a2",
-    code: "A2",
+    code: "Segunda Parada",
     title: "Ayuntamiento / Plaza de la Constitución",
     shortTitle: "La plaza",
     address: "Plaza de la Constitución, 1",
@@ -35,7 +35,7 @@ window.LALA_STOPS = [
     clue:
       "El corazón del pueblo. Mirad la fachada del Ayuntamiento desde fuera — sin subir escaleras. Hoy el balcón es solo decorado: vosotras sois la historia.",
     task: "Foto de la fachada exterior del Ayuntamiento (todo el grupo en el encuadre si podéis).",
-    garySlot: "Gary EN · nota 2",
+    garySlot: "Gary · nota 2",
     garyPlaceholder:
       "[Gary — escribe aquí la nota en inglés para la Plaza / Ayuntamiento. Aparece tras pulsar Hecho.]",
     hostTip:
@@ -44,7 +44,7 @@ window.LALA_STOPS = [
   },
   {
     id: "b3",
-    code: "B3",
+    code: "Tercera Parada",
     title: "Campo de fútbol",
     shortTitle: "El campo",
     address: "Aparcamiento · Cam. de la Vega, 20 · junto al campo",
@@ -54,7 +54,7 @@ window.LALA_STOPS = [
     clue:
       "Hoy el partido sois vosotras. Encontrad el campo de hierba — un sitio amplio para celebrar en movimiento (sin pisar el césped si está cerrado).",
     task: "Lala posa imitando a su futbolista favorito delante del campo.",
-    garySlot: "Gary EN · nota 3",
+    garySlot: "Gary · nota 3",
     garyPlaceholder:
       "[Gary — escribe aquí la nota en inglés para el campo de fútbol. Aparece tras pulsar Hecho.]",
     hostTip:
@@ -63,7 +63,7 @@ window.LALA_STOPS = [
   },
   {
     id: "finale",
-    code: "Finale",
+    code: "Grand Finale",
     title: "American Ribs",
     shortTitle: "La comida",
     address: "Pl. de José Antonio, 5",
@@ -73,11 +73,11 @@ window.LALA_STOPS = [
     clue:
       "Última parada. No abráis la carta ni el regalo hasta estar sentadas. La caza termina en la mesa — con risas, un brindis y la sorpresa de Gary.",
     task: "Sentaros juntas (~14:30). Foto de grupo · brindis · carta + regalo.",
-    garySlot: "Gary EN · carta final + regalo",
+    garySlot: "Gary · carta final + regalo",
     garyPlaceholder:
       "[Gary — aquí va la carta de amor en inglés + tema del regalo. Leer en la mesa.]",
     hostTip:
-      "Reserva 7 · ~14:30–15:00. Carta y regalo los lleva la anfitriona. Confirmar horario domingo 20 dic.",
+      "Reserva 7 · ~14:30–15:00. La carta y el regalo los lleva Gus.",
     swapNote: null,
     isFinale: true,
   },
