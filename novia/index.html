@@ -47,11 +47,14 @@
           <span class="badge">Modo novia</span>
         </div>
 
+        <div id="mood-trail-host"></div>
+
         <div class="start-banner" id="start-banner">
           <strong>Punto de encuentro</strong>
-          Calle Jorge Manrique, 1 (Silillos) · ~13:15. Cuando el grupo esté listo, pulsad Empezar.
+          Calle Jorge Manrique, 1 (Silillos) · ~13:15. Primero un quiz de pareja para abrir la caza.
+          <div id="start-quiz" class="quiz-box" hidden></div>
           <div class="actions" style="margin-top: 0.75rem">
-            <button type="button" class="btn btn-primary btn-small" id="btn-start">
+            <button type="button" class="btn btn-primary btn-small" id="btn-start" hidden>
               Empezar
             </button>
             <a
@@ -68,13 +71,35 @@
           <div class="path-markers" id="path-markers"></div>
         </div>
 
-        <div class="panel" id="stop-panel">
+        <div class="panel" id="stop-panel" hidden>
           <div class="stop-code" id="stop-code">A1</div>
           <h2 id="stop-title">Parada</h2>
           <p class="address" id="stop-address"></p>
           <p class="clue" id="stop-clue"></p>
           <p class="task" id="stop-task"></p>
           <p class="verify-flag" id="verify-flag" hidden></p>
+
+          <div class="soundtrack-box" id="soundtrack-box" hidden>
+            <p class="slot-label" id="soundtrack-title">Banda sonora · parada 1</p>
+            <p class="ana-note" id="soundtrack-label"></p>
+            <a
+              class="btn btn-maps btn-small"
+              id="soundtrack-link"
+              target="_blank"
+              rel="noopener"
+              href="#"
+              >Abrir canción</a
+            >
+            <button type="button" class="btn btn-primary btn-small" id="btn-dance">
+              Bailar 10s
+            </button>
+            <p class="dance-status" id="dance-status"></p>
+          </div>
+
+          <div id="mood-box" class="mood-box" hidden></div>
+          <div id="roulette-box" class="roulette-box" hidden></div>
+          <div id="finale-quiz" class="quiz-box" hidden></div>
+
           <div class="gary-box" id="gary-box" hidden>
             <p class="slot-label" id="gary-slot">Gary EN</p>
             <p id="gary-text"></p>
@@ -95,8 +120,9 @@
         <div class="panel complete-banner" id="all-done" hidden>
           <h2>¡Caza completada!</h2>
           <p>
-            Disfruta de la comida, la carta y el regalo ¡Te queremos Lala!
+            Disfrutad la comida, la carta y el regalo. Os queremos, Lala.
           </p>
+          <div id="all-done-mood"></div>
           <img
             src="../assets/lala-duckies.png"
             alt="Party duck y bride duck"

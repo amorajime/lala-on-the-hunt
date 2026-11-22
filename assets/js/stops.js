@@ -1,7 +1,7 @@
 /**
- * Lala on the Hunt — shared stop data
- * Edit Spanish copy, Maps pins, and Gary note placeholders here.
- * B3: Campo de fútbol — parking/access pin confirmed by Ana: Cam. de la Vega, 20.
+ * Lala on the Hunt — shared stop + party config
+ * Edit Spanish copy, Maps pins, Gary notes, quiz Q&A, and song URL here.
+ * B3 parking/access: Cam. de la Vega, 20 (Ana confirmed).
  */
 window.LALA_STOPS = [
   {
@@ -20,8 +20,9 @@ window.LALA_STOPS = [
     garyPlaceholder:
       "[Gary — escribe aquí la nota en inglés para el Parque. Aparece tras pulsar Hecho.]",
     hostTip:
-      "Aparcamiento para dos coches cerca. Caminos llanos. Tras Hecho: cambio de coche — Lala pasa al Coche 2.",
-    swapNote: "Tras esta parada: Lala cambia al Coche 2.",
+      "Aparcamiento para dos coches cerca. Caminos llanos. Tras Hecho: ruleta Coche A / Coche B.",
+    swapNote: "Tras esta parada: ruleta de coches (A o B).",
+    soundtrack: true,
   },
   {
     id: "a2",
@@ -39,8 +40,8 @@ window.LALA_STOPS = [
     garyPlaceholder:
       "[Gary — escribe aquí la nota en inglés para la Plaza / Ayuntamiento. Aparece tras pulsar Hecho.]",
     hostTip:
-      "Solo exterior. Sin escaleras. Dos coches cerca de la plaza. Tras Hecho: Lala vuelve al Coche 1.",
-    swapNote: "Tras esta parada: Lala cambia al Coche 1.",
+      "Solo exterior. Sin escaleras. Dos coches cerca de la plaza. Tras Hecho: ruleta Coche A / Coche B.",
+    swapNote: "Tras esta parada: ruleta de coches (A o B).",
   },
   {
     id: "b3",
@@ -58,8 +59,8 @@ window.LALA_STOPS = [
     garyPlaceholder:
       "[Gary — escribe aquí la nota en inglés para el campo de fútbol. Aparece tras pulsar Hecho.]",
     hostTip:
-      "Parking/acceso confirmado por Ana: Cam. de la Vega, 20. Parada = campo de fútbol (Maps abre el pin de aparcamiento). Opcional: brindis de 30 s si hay energía.",
-    swapNote: "Tras esta parada: Lala cambia al Coche 2 → American Ribs.",
+      "Parking/acceso confirmado por Ana: Cam. de la Vega, 20. Tras Hecho: ruleta Coche A / Coche B → American Ribs. Opcional: brindis de 30 s.",
+    swapNote: "Tras esta parada: ruleta de coches (A o B) → American Ribs.",
   },
   {
     id: "finale",
@@ -77,10 +78,54 @@ window.LALA_STOPS = [
     garyPlaceholder:
       "[Gary — aquí va la carta de amor en inglés + tema del regalo. Leer en la mesa.]",
     hostTip:
-      "Reserva 7 · ~14:30–15:00. La carta y el regalo los lleva Gus.",
+      "Reserva 7 · ~14:30–15:00. La carta y el regalo los lleva Gus. Se desbloquean con el quiz final.",
     swapNote: null,
     isFinale: true,
   },
+];
+
+/** Shared couple questions — start gate + finale confirm (same two). */
+window.LALA_COUPLE_QUESTIONS = [
+  {
+    id: "q-concert",
+    prompt: "¿Cuál fue el primer concierto al que fuiste con Gary?",
+    /* Accepted after normalize (case/accents/spaces) */
+    answers: ["rammstein"],
+  },
+  {
+    id: "q-group",
+    prompt: "¿Cómo se llama el grupo en el que hablaste con Gary por primera vez?",
+    answers: ["gossip gang", "gossipgang"],
+  },
+];
+
+window.LALA_QUIZ = {
+  start: {
+    id: "start",
+    title: "Quiz de pareja · empezar",
+    questions: window.LALA_COUPLE_QUESTIONS,
+    anaNote: "Escribid las respuestas (mayúsculas/minúsculas da igual).",
+  },
+  finale: {
+    id: "finale",
+    title: "Quiz de pareja · confirmar carta y regalo",
+    questions: window.LALA_COUPLE_QUESTIONS,
+    anaNote: "Misma confirmación que al inicio — desbloquea carta + regalo.",
+  },
+};
+
+window.LALA_SOUNDTRACK = {
+  stopId: "a1",
+  url: "https://open.spotify.com/intl-es/track/3Y1F4btGQxxMZhlBYaLR4N",
+  label: "Canción de Gary · parada 1 (Spotify)",
+  danceSeconds: 10,
+  title: "Banda sonora · parada 1",
+};
+
+window.LALA_MOODS = [
+  { id: "heart", emoji: "💚", label: "Amor" },
+  { id: "laugh", emoji: "😂", label: "Risas" },
+  { id: "tear", emoji: "🥹", label: "Emoción" },
 ];
 
 window.LALA_META = {
@@ -90,10 +135,11 @@ window.LALA_META = {
   startAddress: "Calle Jorge Manrique, 1 (Silillos)",
   startMapsQuery: "Calle Jorge Manrique 1, Valdetorres de Jarama",
   convoyNote:
-    "Convoy compartido: mismas paradas, dos coches solo por asientos. Lala puede cambiar de coche entre paradas.",
-  storageKey: "lala-on-the-hunt-progress-v1",
+    "Convoy compartido: mismas paradas, dos coches solo por asientos. Tras cada Hecho, la ruleta elige Coche A o Coche B.",
+  storageKey: "lala-on-the-hunt-progress-v2",
   authStorageKey: "lala-amigas-unlocked-v1",
   /* SHA-256 of the party password — not the plaintext */
   passwordHash:
     "32ed902afb2b16ed73c67d32f03480e95d2cb12c1dfa7e95bdfa6b8aa831d12e",
+  cars: ["A", "B"],
 };

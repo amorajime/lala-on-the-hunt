@@ -6,14 +6,12 @@ Static Spanish-language scavenger hunt site for Lala’s bachelorette in Valdeto
 
 ## Live URL
 
-After GitHub Pages is enabled (see below):
-
 **https://amorajime.github.io/lala-on-the-hunt/**
 
 | Route | Who | Notes |
 |---|---|---|
-| `/` or `/novia/` | Lala (bride) | One active stop; **Hecho** unlocks the next; progress in `localStorage` |
-| `/amigas/` | Friends / hosts | Password-gated full itinerary + host tips |
+| `/` or `/novia/` | Lala (bride) | Quiz start → stops → mood → car roulette → notes; progress in `localStorage` |
+| `/amigas/` | Friends / hosts | Password-gated full itinerary + host tips + mood trail |
 
 **Friends password:** `LalaMala1` (client-side SHA-256 check — fine for a party toy, not real security).
 
@@ -33,55 +31,79 @@ Then open:
 
 ## GitHub Pages
 
-**Live:** https://amorajime.github.io/lala-on-the-hunt/
+Pages deploys from **branch `main` / root (`/`)**. Every push to `main` republishes.
 
-Pages is enabled from **branch `main` / root (`/`)**. Every push to `main` republishes.
+Settings → Pages → Build and deployment → Deploy from a branch → `main` / `/ (root)`.
 
-To re-check in the GitHub UI: **Settings → Pages → Build and deployment** → Deploy from a branch → `main` / `/ (root)`.
+## Edit stops, quiz, song & copy
 
-## Edit stops & copy
+**One config file:** [`assets/js/stops.js`](assets/js/stops.js)
 
-All stop text, Maps queries, Gary placeholders, and host tips live in one file:
-
-**[`assets/js/stops.js`](assets/js/stops.js)**
+### Stops / Maps / Gary notes
 
 - Spanish clues / tasks → `clue`, `task`
-- Gary English note slots → `garyPlaceholder` (shown after **Hecho** on the bride path)
+- Gary English note slots → `garyPlaceholder` (after **Hecho** on the bride path)
 - Friends tips → `hostTip`
 - Maps pin → `lat`, `lng`, `mapsQuery`, `address`
-- Password hash → `LALA_META.passwordHash` (SHA-256 hex of the password)
 
-After changing the plaintext password, recompute:
+### Couple quiz
+
+Edit `window.LALA_COUPLE_QUESTIONS` in `stops.js` (shared by start + finale gates):
+
+| # | Question | Answer |
+|---|---|---|
+| 1 | ¿Cuál fue el primer concierto al que fuiste con Gary? | **Rammstein** |
+| 2 | ¿Cómo se llama el grupo en el que hablaste con Gary por primera vez? | **Gossip Gang** |
+
+Answers are free-text; case and accents are normalized (`Rammstein` / `rammstein` both work).  
+`LALA_QUIZ.start` and `LALA_QUIZ.finale` both reuse this list (finale = confirm before letter/gift).
+
+### Soundtrack stop 1
+
+`window.LALA_SOUNDTRACK` in `stops.js`:
+
+- Live song: https://open.spotify.com/intl-es/track/3Y1F4btGQxxMZhlBYaLR4N  
+- Bride flow on parada 1: open Spotify → **Bailar 10s** → **Hecho**
+
+### Mood meter
+
+After each stop, bride picks 💚 / 😂 / 🥹. Stored in `localStorage` (`moods`). Bride + amigas show a mood trail (same browser).
+
+### Car swap roulette
+
+After **Hecho** on A1 / A2 / B3 (not finale): spin lands on **Coche A** or **Coche B** only (no names).
+
+### Password hash
+
+`LALA_META.passwordHash` — SHA-256 hex of the friends password:
 
 ```bash
 printf '%s' 'YourNewPassword' | sha256sum
 ```
 
-Duckies artwork: `assets/lala-duckies.png`.
-
-Styles: `assets/css/styles.css`.
+Duckies: `assets/lala-duckies.png` · Styles: `assets/css/styles.css`.
 
 ## Stops (shared route)
 
-1. **A1** Parque Julián González Rodríguez — group selfie with green in frame  
+1. **A1** Parque Julián González Rodríguez — selfie with green + soundtrack dance  
 2. **A2** Ayuntamiento / Plaza de la Constitución — town-hall façade exterior  
-3. **B3** Campo de fútbol — parking **Cam. de la Vega, 20** (Ana confirmed) — group photo  
-4. **Finale** American Ribs, Pl. de José Antonio 5 — letter/gift + lunch ~14:30  
+3. **B3** Campo de fútbol — parking **Cam. de la Vega, 20** — Lala soccer-player pose  
+4. **Finale** American Ribs, Pl. de José Antonio 5 — quiz → letter/gift + lunch ~14:30  
 
-Start: Calle Jorge Manrique, 1 (Silillos). Lala may switch cars between stops.
+Start: Calle Jorge Manrique, 1 (Silillos).
 
-## Ana — pins to verify
+## Ana — pins
 
-| Stop | Proposed pin | Status |
+| Stop | Pin | Status |
 |---|---|---|
 | Start | Calle Jorge Manrique 1 | Confirm Maps / Silillos |
-| A1 | Parque @ ~40.694321, −3.512548 (C. Calvario) | Parking + flat access |
-| A2 | Plaza Constitución / Ayuntamiento @ ~40.69513, −3.51243 | Exterior photo spot, 2-car parking |
-| **B3** | **Campo de fútbol · parking Cam. de la Vega, 20** (Maps) | **Ana confirmed parking pin** |
-| Finale | American Ribs · Pl. José Antonio 5 @ 40.696003, −3.513482 | Sunday 20 Dec lunch hours + reserve 7 @ ~14:30 |
+| A1 | Parque @ ~40.694321, −3.512548 | Parking + flat access |
+| A2 | Ayuntamiento @ ~40.69513, −3.51243 | Exterior photo, 2-car parking |
+| **B3** | **Parking Cam. de la Vega, 20** | **Ana confirmed** |
+| Finale | American Ribs · Pl. José Antonio 5 | Sunday lunch + reserve 7 @ ~14:30 |
 
 ## Privacy notes
 
-- Optional selfies stay on the phone — there is no upload backend.  
-- Bride progress is stored only in that browser’s `localStorage`.  
+- Optional selfies stay on the phone — no upload backend.  
+- Bride progress / moods / car spins live in that browser’s `localStorage`.  
 - Amigas unlock is also `localStorage` on that device.
