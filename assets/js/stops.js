@@ -136,15 +136,13 @@ window.LALA_QUIZ = {
     title: "Quiz de pareja · última sorpresa",
     questions: [window.LALA_COUPLE_QUESTIONS[1]],
     anaNote: "Esta respuesta desbloquea la carta de Gary.",
-    friendsNote:
-      "Elegid la respuesta correcta. Después pedidle a Lala que lea la carta en voz alta.",
+    friendsNote: "Elegid la respuesta correcta.",
   },
 };
 
 window.LALA_FRIENDS_COPY = {
   letterPromptTitle: "La carta de Gary",
-  letterPrompt:
-    "Pedidle a Lala que lea la carta de Gary en voz alta. El texto completo está en su teléfono (o impreso) — aquí no lo mostramos.",
+  letterPrompt: "Pedidle a Lala que lea la carta de Gary en voz alta.",
   waitTitle: "Cambio de coche",
   waitLead: "Lala está girando la ruleta para su próximo asiento.",
   waitBody:
