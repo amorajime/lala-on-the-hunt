@@ -2,7 +2,7 @@
 
 Static Spanish-language scavenger hunt site for Lala’s bachelorette in Valdetorres de Jarama.
 
-**Format:** shared convoy (2 cars, same stops) · bride unlocks one stop at a time · friends see the full itinerary behind a password.
+**Format:** shared convoy (2 cars, same stops) · bride unlocks one stop at a time · friends run a parallel play mode behind a password.
 
 ## Live URL
 
@@ -10,10 +10,12 @@ Static Spanish-language scavenger hunt site for Lala’s bachelorette in Valdeto
 
 | Route | Who | Notes |
 |---|---|---|
-| `/` or `/novia/` | Lala (bride) | Quiz start → challenge → Gary note → mood → roulette; finale: quiz → letter → mood → success |
-| `/amigas/` | Friends / hosts | Password-gated full itinerary + host tips + mood trail |
+| `/` or `/novia/` | Lala (bride) | Free-text quiz → challenge → Gary note → mood → roulette; finale: quiz → letter → mood → success |
+| `/amigas/` | Friends / hosts | Password gate → **play mode**: 4-option quizzes, Maps on every challenge, friend-facing challenge copy, Gary notes, wait card (bride spins), letter prompt (no full text), moods → success |
 
 **Friends password:** `LalaMala1` (client-side SHA-256 check — fine for a party toy, not real security).
+
+**Amigas live:** https://amorajime.github.io/lala-on-the-hunt/amigas/
 
 ## Open locally
 
@@ -41,21 +43,22 @@ Settings → Pages → Build and deployment → Deploy from a branch → `main` 
 
 ### Stops / Maps / Gary notes
 
-- Spanish clues / tasks → `clue`, `task`
-- Gary English note slots → `garyPlaceholder` (after **Hecho** on the bride path)
-- Friends tips → `hostTip`
+- Bride Spanish clues / tasks → `clue`, `task`
+- Friends Spanish instructions → `friendsClue`, `friendsTask`
+- Gary English note slots → `garyPlaceholder` (after **Hecho**)
 - Maps pin → `lat`, `lng`, `mapsQuery`, `address`
 
 ### Couple quiz
 
 Edit `window.LALA_COUPLE_QUESTIONS` in `stops.js`:
 
-| Gate | Question | Answer |
-|---|---|---|
-| **Start** (`LALA_QUIZ.start`) | ¿Cuál fue el primer concierto al que fuiste con Gary? | **Rammstein** |
-| **Finale** (`LALA_QUIZ.finale`) | ¿Cómo se llama el grupo en el que hablaste con Gary por primera vez? | **Gossip Gang** |
+| Gate | Question | Answer | Amigas choices |
+|---|---|---|---|
+| **Start** | ¿Cuál fue el primer concierto…? | **Rammstein** | Calvin Harris · Ed Sheeran · Rammstein · Hootie & the Blowfish |
+| **Finale** | ¿Cómo se llama el grupo…? | **Gossip Gang** | The Cool Gang · Gossip Gang · The Beastie Boys · Boston Girlies |
 
-Answers are free-text; case and accents are normalized (`Rammstein` / `rammstein` both work). One question per gate.
+- **Bride:** free-text (case/accents normalized).
+- **Amigas:** tap one of four options; only the correct choice advances.
 
 ### Soundtrack stop 1
 
@@ -66,15 +69,20 @@ Answers are free-text; case and accents are normalized (`Rammstein` / `rammstein
 
 ### Finale letter
 
-`window.LALA_FINALE_LETTER` in `stops.js` — shown after finale quiz, before mood.
+`window.LALA_FINALE_LETTER` in `stops.js` — full text on the **bride** path after finale quiz.
+
+Amigas see only `LALA_FRIENDS_COPY.letterPrompt` (“ask Lala to read the letter out loud”) — no letter body.
 
 ### Mood meter
 
-After each stop, bride picks 💚 / 😂 / 🥹. Stored in `localStorage` (`moods`). Bride + amigas show a mood trail (same browser).
+After each stop, pick 💚 / 😂 / 🥹. Bride uses `storageKey`; amigas play mode uses `friendsStorageKey` (separate phones / progress).
 
-### Car swap roulette
+### Car swap
 
-After **Hecho** on A1 / A2 / B3 (not finale): Gary note → mood → spin **Coche A** or **Coche B**. Bride UI has no Maps buttons (amigas keeps Maps).
+- **Bride:** Gary note → mood → spin **Coche A** or **Coche B**.
+- **Amigas:** Gary note → mood → wait card (“Lala is spinning for her next seat”) + Maps to the next stop. No roulette control.
+
+Bride UI hides Maps; amigas show **Google Maps** on every challenge (and on the wait card for the next location).
 
 ### Password hash
 

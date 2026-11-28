@@ -16,6 +16,10 @@ window.LALA_STOPS = [
     clue:
       "Gary ha seleccionado una canción. ¡Nosotras queremos verte bailar! Una vez que tengamos las pruebas (un vídeo), podemos continuar.",
     task: "Abrid la canción, grabad el baile o lip-sync, y pulsad Hecho.",
+    friendsClue:
+      "Gary ha elegido la canción. Pedidle a Lala que baile o haga lip-sync. Cuando tengáis el vídeo, seguid.",
+    friendsTask:
+      "Abrid Spotify, pedidle el baile/lip-sync a Lala, grabad el vídeo y pulsad Hecho.",
     garySlot: "Dancing is the poetry of the foot",
     garyPlaceholder:
       "Is the preceding line an absolute truth?\nWe can let tavern scholars debate over noon vermouth.\nThe vermouth may spill into a sobremesa,\nI would converse over empty plates forever with Teresa.\nYour first challenge has now concluded,\nMore to come with familiar conversation interluded.\nYour sister and friends are devout in their love for you,\nWhat a gift people take a lifetime to pursue.",
@@ -36,6 +40,9 @@ window.LALA_STOPS = [
     clue: "Hemos preparado un Pasapalabra. ¡Que empiece el rosco!",
     task:
       "Lala tiene 5 minutos para las 25 palabras. Si se atasca, diga «¡Pasapalabra!» y volvéis más tarde. Sin pistas y sin preguntar a nadie.",
+    friendsClue: "Habéis preparado un Pasapalabra. ¡Dirigid el rosco!",
+    friendsTask:
+      "Dad a Lala 5 minutos para las 25 palabras. Si se atasca, «¡Pasapalabra!» y volvéis más tarde. Sin pistas y sin que pregunte a nadie. Vosotras lleváis el juego.",
     garySlot: "Pasapalabra",
     garyPlaceholder:
       "Here you have passed Pasapalabra,\nBut this challenge was easy for you,\nA silly gameshow, not advanced algebra.\nOn to the next challenge with your crew.\n\nThe succeeding challenge may be physical in nature.\nDoes Valdetorres have a field, a court, a pitch?\nThis author doesn't know all sporting nomenclature,\nIs this all a clue, or a simple bait and switch?",
@@ -55,6 +62,10 @@ window.LALA_STOPS = [
     clue:
       "Retamos a la novia a hacerse una sesión de fotos posando como su futbolista favorito.",
     task: "Sesión de fotos: Lala posa como su futbolista favorito delante del campo.",
+    friendsClue:
+      "Retad a Lala a una sesión de fotos posando como su futbolista favorito.",
+    friendsTask:
+      "Pedidle a Lala que pose como su futbolista favorito delante del campo. Haced fotos y pulsad Hecho.",
     garySlot: "Atleti greats",
     garyPlaceholder:
       "You've now joined the fraternity of Atleti greats,\nKoke, Torres, Griezmann, and now Mora shoulder the weights.\nWell done and hats off to you for completing this task,\nPerhaps your next challenge will have you speaking Basque?\nI hope you had fun hanging out north of Madrid,\nYou deserve a statue in your honor, like that of El Cid.",
@@ -74,10 +85,14 @@ window.LALA_STOPS = [
     clue:
       "La caza de Lala está casi terminada. Sentémonos, pidamos algo de beber y respondamos una pregunta para revelar la última sorpresa.",
     task: "Sentaros, pedid bebida y pulsad Hecho.",
+    friendsClue:
+      "La caza está casi terminada. Sentaros en American Ribs, pedid algo de beber y preparad la pregunta final.",
+    friendsTask:
+      "Sentaros, pedid bebida y pulsad Hecho cuando estéis listas para el quiz de pareja.",
     garySlot: "Mi Alma",
     garyPlaceholder: "",
     hostTip:
-      "Reserva 7 · ~14:30. Flujo web: quiz → carta → mood → éxito.",
+      "Reserva 7 · ~14:30. Flujo amigas: quiz → pedid a Lala que lea la carta → mood → éxito.",
     swapNote: null,
     isFinale: true,
   },
@@ -88,11 +103,23 @@ window.LALA_COUPLE_QUESTIONS = [
     id: "q-concert",
     prompt: "¿Cuál fue el primer concierto al que fuiste con Gary?",
     answers: ["rammstein"],
+    choices: [
+      "Calvin Harris",
+      "Ed Sheeran",
+      "Rammstein",
+      "Hootie & the Blowfish",
+    ],
   },
   {
     id: "q-group",
     prompt: "¿Cómo se llama el grupo en el que hablaste con Gary por primera vez?",
     answers: ["gossip gang", "gossipgang"],
+    choices: [
+      "The Cool Gang",
+      "Gossip Gang",
+      "The Beastie Boys",
+      "Boston Girlies",
+    ],
   },
 ];
 
@@ -102,13 +129,28 @@ window.LALA_QUIZ = {
     title: "Quiz de pareja · empezar",
     questions: [window.LALA_COUPLE_QUESTIONS[0]],
     anaNote: "Escribid la respuesta (mayúsculas/minúsculas da igual).",
+    friendsNote: "Elegid la respuesta correcta. Solo avanzáis si acertáis.",
   },
   finale: {
     id: "finale",
     title: "Quiz de pareja · última sorpresa",
     questions: [window.LALA_COUPLE_QUESTIONS[1]],
     anaNote: "Esta respuesta desbloquea la carta de Gary.",
+    friendsNote:
+      "Elegid la respuesta correcta. Después pedidle a Lala que lea la carta en voz alta.",
   },
+};
+
+window.LALA_FRIENDS_COPY = {
+  letterPromptTitle: "La carta de Gary",
+  letterPrompt:
+    "Pedidle a Lala que lea la carta de Gary en voz alta. El texto completo está en su teléfono (o impreso) — aquí no lo mostramos.",
+  waitTitle: "Cambio de coche",
+  waitLead: "Lala está girando la ruleta para su próximo asiento.",
+  waitBody:
+    "Esperad a que termine en su pantalla. Mientras, preparad el camino a la siguiente parada.",
+  successLead:
+    "Misión cumplida, amigas. Moods archivados y Lala coronada. A comer.",
 };
 
 window.LALA_SOUNDTRACK = {
@@ -161,6 +203,7 @@ window.LALA_META = {
   convoyNote:
     "Convoy compartido: mismas paradas, dos coches. Tras Hecho: nota Gary → mood → ruleta A/B.",
   storageKey: "lala-on-the-hunt-progress-v2",
+  friendsStorageKey: "lala-on-the-hunt-friends-progress-v1",
   authStorageKey: "lala-amigas-unlocked-v1",
   passwordHash:
     "32ed902afb2b16ed73c67d32f03480e95d2cb12c1dfa7e95bdfa6b8aa831d12e",

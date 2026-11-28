@@ -26,7 +26,7 @@
           alt=""
         />
         <h1>Lala on the Hunt</h1>
-        <p>Solo para las amigas — no enseñéis esta pantalla a Lala.</p>
+        <p>Modo amigas · no enseñéis esta pantalla a Lala.</p>
         <form id="gate-form" autocomplete="off">
           <label class="visually-hidden" for="password" style="position:absolute;left:-9999px"
             >Contraseña</label
@@ -47,26 +47,137 @@
       </section>
 
       <section class="amigas-app" id="amigas-app" hidden>
-        <div class="quest-head">
-          <h1 style="font-family: var(--font-display); font-size: 1.55rem; margin: 0">
-            Itinerario completo
-          </h1>
-          <span class="badge">Amigas</span>
-        </div>
-        <p style="margin: 0 0 1rem; color: var(--ink-soft); font-size: 0.95rem">
-          Domingo 20 dic · convoy compartido · misma ruta · ruleta Coche A/B tras cada Hecho.
-        </p>
-        <div id="amigas-mood-trail" class="amigas-mood-wrap"></div>
-        <div class="itinerary" id="itinerary"></div>
-        <div class="footer-tools">
-          <a class="link-quiet" href="../">Vista novia</a>
-          <button type="button" id="btn-lock">Cerrar sesión amigas</button>
-        </div>
+        <header class="hero" id="hero">
+          <div class="hero-visual" aria-hidden="true">
+            <div class="sky-blob a"></div>
+            <div class="sky-blob b"></div>
+            <img
+              id="duckies-hero"
+              class="duckies"
+              src="../assets/lala-duckies.png"
+              width="589"
+              height="283"
+              alt=""
+            />
+          </div>
+          <div class="hero-copy">
+            <p class="hero-meta">Despedida · Modo amigas</p>
+            <h1 class="brand">Lala on <span>the Hunt</span></h1>
+            <p class="hero-lead">
+              Vosotras dirigís los retos. Maps a cada parada. Que Lala no vea esta pantalla.
+            </p>
+          </div>
+        </header>
+
+        <section class="quest" id="hunt" aria-label="Camino de las amigas">
+          <div class="quest-head">
+            <h1>Vuestra misión</h1>
+            <span class="badge">Modo amigas</span>
+          </div>
+
+          <div id="mood-trail-host"></div>
+
+          <div class="start-banner" id="start-banner">
+            <strong>Punto de encuentro</strong>
+            Calle Jorge Manrique, 1 (Silillos) · ~13:15. Primero el quiz de pareja para abrir la
+            caza — Lala responde; vosotras comprobáis en esta pantalla.
+            <div id="start-quiz" class="quiz-box" hidden></div>
+            <div class="actions" style="margin-top: 0.75rem">
+              <a
+                class="btn btn-maps btn-small"
+                id="btn-start-maps"
+                target="_blank"
+                rel="noopener"
+                href="#"
+                hidden
+                >Abrir salida en Maps</a
+              >
+            </div>
+          </div>
+
+          <div class="map-stage" id="map-stage">
+            <div class="path-markers" id="path-markers"></div>
+          </div>
+
+          <div class="panel" id="stop-panel" hidden>
+            <div class="stop-code" id="stop-code">A1</div>
+            <h2 id="stop-title">Parada</h2>
+            <p class="address" id="stop-address"></p>
+            <p class="clue" id="stop-clue"></p>
+            <p class="task" id="stop-task"></p>
+
+            <div class="soundtrack-box" id="soundtrack-box" hidden>
+              <a
+                class="btn btn-maps btn-small"
+                id="soundtrack-link"
+                target="_blank"
+                rel="noopener"
+                href="#"
+                >Abrir canción en Spotify</a
+              >
+            </div>
+
+            <div id="mood-box" class="mood-box" hidden></div>
+            <div id="wait-box" class="wait-box" hidden></div>
+            <div id="finale-quiz" class="quiz-box" hidden></div>
+            <div id="finale-letter" class="letter-box" hidden></div>
+
+            <div class="gary-box" id="gary-box" hidden>
+              <p class="slot-label" id="gary-slot">Gary EN</p>
+              <p id="gary-text" class="gary-body"></p>
+            </div>
+
+            <a class="btn btn-maps" id="btn-maps" target="_blank" rel="noopener" href="#" hidden
+              >Abrir en Google Maps</a
+            >
+            <div class="actions">
+              <button type="button" class="btn btn-done" id="btn-done">Hecho!</button>
+              <button type="button" class="btn btn-primary" id="btn-continue" hidden>
+                Siguiente
+              </button>
+            </div>
+          </div>
+
+          <div class="panel complete-banner success-screen" id="all-done" hidden>
+            <canvas id="confetti-canvas" class="confetti-canvas" aria-hidden="true"></canvas>
+            <div class="success-duck-hero">
+              <img
+                class="success-ducks"
+                src="../assets/lala-duckies.png"
+                alt=""
+                width="589"
+                height="283"
+              />
+              <div class="success-duck-overlay">
+                <div class="success-hero-mark" aria-hidden="true">
+                  <span class="success-check">✓</span>
+                </div>
+                <p class="success-eyebrow">Success</p>
+              </div>
+            </div>
+            <h2 id="success-title">The Hunt has been hunted</h2>
+            <p id="success-lead" class="success-lead">
+              Misión cumplida, amigas. Moods archivados y Lala coronada. A comer.
+            </p>
+            <div id="all-done-mood" class="success-mood-wrap"></div>
+            <button type="button" class="btn btn-finish-wide" id="btn-finish-ok">Finish</button>
+            <button type="button" class="btn-restart" id="btn-success-reset">
+              Reiniciar progreso amigas
+            </button>
+          </div>
+
+          <div class="footer-tools">
+            <a class="link-quiet" href="../">Vista novia</a>
+            <button type="button" id="btn-reset">Reiniciar progreso amigas</button>
+            <button type="button" id="btn-lock">Cerrar sesión amigas</button>
+          </div>
+        </section>
       </section>
     </main>
 
     <script src="../assets/js/stops.js"></script>
     <script src="../assets/js/progress.js"></script>
+    <script src="../assets/js/map.js"></script>
     <script src="../assets/js/auth.js"></script>
     <script src="../assets/js/friends.js"></script>
   </body>
