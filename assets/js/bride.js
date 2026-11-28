@@ -129,7 +129,7 @@
             autocapitalize="off"
             autocorrect="off"
             spellcheck="false"
-            placeholder="Escribid la respuesta"
+            placeholder="Escribe tu respuesta"
             required
           />
           <button class="btn btn-primary" type="submit">Comprobar</button>
@@ -155,7 +155,7 @@
           }, 700);
         } else {
           err.hidden = false;
-          err.textContent = "Casi… probad otra vez.";
+          err.textContent = "Casi… prueba otra vez.";
           window.LalaQuizUi?.shake(input);
           input.select();
         }
@@ -263,9 +263,9 @@
     clearPanelChrome();
 
     el("stop-code").textContent = stop.code + " · mood";
-    el("stop-title").textContent = "¿Cómo os sentís?";
+    el("stop-title").textContent = "¿Cómo te sientes?";
     el("stop-address").textContent = stop.title;
-    el("stop-clue").textContent = "Elegid un mood para esta parada.";
+    el("stop-clue").textContent = "Elige un mood para esta parada.";
     el("stop-task").textContent = "";
     el("stop-task").hidden = true;
 
@@ -309,9 +309,9 @@
 
     el("stop-code").textContent = "Cambio de coche";
     el("stop-title").textContent = "Ruleta · Coche A o B";
-    el("stop-address").textContent = "¿Dónde va Lala?";
+    el("stop-address").textContent = "¿Dónde vas tú, Lala?";
     el("stop-clue").textContent =
-      "Girad la ruleta. Solo Coche A o Coche B — sin nombres.";
+      "Gira la ruleta. Solo Coche A o Coche B — sin nombres.";
     el("stop-task").textContent = "";
     el("stop-task").hidden = true;
 
@@ -325,7 +325,9 @@
         <div class="roulette-pointer"></div>
       </div>
       <p class="roulette-result" id="roulette-result">${
-        existing ? `Lala → <strong>Coche ${existing}</strong>` : "Pulsad girar"
+        existing
+          ? `Tú vas al <strong>Coche ${existing}</strong>`
+          : "Pulsa girar"
       }</p>
       <button type="button" class="btn btn-primary" id="btn-spin" ${
         existing ? "hidden" : ""
@@ -350,7 +352,7 @@
       wheel.style.transform = `rotate(${end}deg)`;
       setTimeout(() => {
         window.LalaProgress.setCarSwap(stop.id, pick);
-        result.innerHTML = `Lala → <strong>Coche ${pick}</strong>`;
+        result.innerHTML = `Tú vas al <strong>Coche ${pick}</strong>`;
         nextBtn.hidden = false;
         spinBtn.hidden = true;
       }, 2500);
@@ -376,7 +378,8 @@
     el("stop-code").textContent = "Grand Finale · quiz";
     el("stop-title").textContent = "Una pregunta más";
     el("stop-address").textContent = stop.title;
-    el("stop-clue").textContent = "Responded para revelar la última sorpresa.";
+    el("stop-clue").textContent =
+      "Responde para revelar la última sorpresa.";
     el("stop-task").textContent = "";
     el("stop-task").hidden = true;
 
@@ -525,7 +528,7 @@
       const html = window.LalaProgress.moodReceiptHtml();
       trail.innerHTML = html
         ? `<div class="success-mood-card">${html}</div>`
-        : `<div class="success-mood-card"><p class="success-mood-empty">Sin moods guardados en este teléfono — igual habéis ganado.</p></div>`;
+        : `<div class="success-mood-card"><p class="success-mood-empty">Sin moods guardados en este teléfono — igual has ganado.</p></div>`;
     }
   }
 
@@ -598,7 +601,7 @@
   }
 
   function onReset() {
-    if (!confirm("¿Reiniciar el progreso de Lala en este teléfono?")) return;
+    if (!confirm("¿Reiniciar tu progreso en este teléfono?")) return;
     window.LalaProgress.reset();
     setPhase(null);
     setSuccessChrome(false);

@@ -14,8 +14,8 @@ window.LALA_STOPS = [
     lng: -3.512548,
     mapsQuery: "Parque Julián González Rodríguez, Valdetorres de Jarama",
     clue:
-      "Gary ha seleccionado una canción. ¡Nosotras queremos verte bailar! Una vez que tengamos las pruebas (un vídeo), podemos continuar.",
-    task: "Abrid la canción, grabad el baile o lip-sync, y pulsad Hecho.",
+      "Gary ha seleccionado una canción para ti. ¡Queremos verte bailar, Lala! Cuando tengas el vídeo del baile, puedes continuar.",
+    task: "Abre la canción, graba tu baile o lip-sync, y pulsa Hecho.",
     friendsClue:
       "Gary ha elegido la canción. Pedidle a Lala que baile o haga lip-sync. Cuando tengáis el vídeo, seguid.",
     friendsTask:
@@ -37,9 +37,9 @@ window.LALA_STOPS = [
     lat: 40.69513,
     lng: -3.51243,
     mapsQuery: "Plaza de la Constitución 1, Valdetorres de Jarama",
-    clue: "Hemos preparado un Pasapalabra. ¡Que empiece el rosco!",
+    clue: "Tus amigas han preparado un Pasapalabra. ¡Que empiece el rosco!",
     task:
-      "Lala tiene 5 minutos para las 25 palabras. Si se atasca, diga «¡Pasapalabra!» y volvéis más tarde. Sin pistas y sin preguntar a nadie.",
+      "Tienes 5 minutos para las 25 palabras. Si te atascas, di «¡Pasapalabra!» y volvéis más tarde. Sin pistas y sin preguntar a nadie.",
     friendsClue: "Habéis preparado un Pasapalabra. ¡Dirigid el rosco!",
     friendsTask:
       "Dad a Lala 5 minutos para las 25 palabras. Si se atasca, «¡Pasapalabra!» y volvéis más tarde. Sin pistas y sin que pregunte a nadie. Vosotras lleváis el juego.",
@@ -60,8 +60,9 @@ window.LALA_STOPS = [
     lng: -3.51754,
     mapsQuery: "Cam. de la Vega 20, Valdetorres de Jarama",
     clue:
-      "Retamos a la novia a hacerse una sesión de fotos posando como su futbolista favorito.",
-    task: "Sesión de fotos: Lala posa como su futbolista favorito delante del campo.",
+      "Te retamos, Lala, a una sesión de fotos posando como tu futbolista favorito.",
+    task:
+      "Ponte delante del campo, posa como tu futbolista favorito, y pulsa Hecho.",
     friendsClue:
       "Retad a Lala a una sesión de fotos posando como su futbolista favorito.",
     friendsTask:
@@ -83,8 +84,8 @@ window.LALA_STOPS = [
     lng: -3.513482,
     mapsQuery: "American Ribs, Plaza de José Antonio 5, Valdetorres de Jarama",
     clue:
-      "La caza de Lala está casi terminada. Sentémonos, pidamos algo de beber y respondamos una pregunta para revelar la última sorpresa.",
-    task: "Sentaros, pedid bebida y pulsad Hecho.",
+      "Tu caza está casi terminada. Siéntate, pide algo de beber y responde una pregunta para revelar la última sorpresa.",
+    task: "Siéntate, pide bebida y pulsa Hecho.",
     friendsClue:
       "La caza está casi terminada. Sentaros en American Ribs, pedid algo de beber y preparad la pregunta final.",
     friendsTask:
@@ -128,14 +129,14 @@ window.LALA_QUIZ = {
     id: "start",
     title: "Quiz de pareja · empezar",
     questions: [window.LALA_COUPLE_QUESTIONS[0]],
-    anaNote: "Escribid la respuesta (mayúsculas/minúsculas da igual).",
+    anaNote: "Escribe tu respuesta (mayúsculas/minúsculas da igual).",
     friendsNote: "Elegid la respuesta correcta. Solo avanzáis si acertáis.",
   },
   finale: {
     id: "finale",
     title: "Quiz de pareja · última sorpresa",
     questions: [window.LALA_COUPLE_QUESTIONS[1]],
-    anaNote: "Esta respuesta desbloquea la carta de Gary.",
+    anaNote: "Con esta respuesta desbloqueas la carta de Gary.",
     friendsNote: "Elegid la respuesta correcta.",
   },
 };
@@ -208,5 +209,5 @@ window.LALA_META = {
   cars: ["A", "B"],
   successTitle: "The Hunt has been hunted",
   successLead:
-    "Misión cumplida. Moods archivados, coches sorteados y Lala coronada. A comer.",
+    "Misión cumplida. Moods archivados, coches sorteados y tú, Lala, coronada. A comer.",
 };
