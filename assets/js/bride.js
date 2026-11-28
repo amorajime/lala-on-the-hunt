@@ -144,11 +144,19 @@
         e.preventDefault();
         if (answerMatches(input.value, q.answers)) {
           err.hidden = true;
-          index += 1;
-          paint();
+          input.classList.remove("quiz-shake");
+          window.LalaQuizUi?.showToast("¡Correcto!");
+          const submitBtn = form.querySelector('button[type="submit"]');
+          if (submitBtn) submitBtn.disabled = true;
+          input.disabled = true;
+          setTimeout(() => {
+            index += 1;
+            paint();
+          }, 700);
         } else {
           err.hidden = false;
           err.textContent = "Casi… probad otra vez.";
+          window.LalaQuizUi?.shake(input);
           input.select();
         }
       });

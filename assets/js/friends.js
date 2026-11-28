@@ -147,12 +147,20 @@
         btn.addEventListener("click", () => {
           if (answerMatches(choice, q.answers)) {
             err.hidden = true;
-            index += 1;
-            paint();
+            btn.classList.add("quiz-option-correct");
+            host.querySelectorAll(".quiz-option").forEach((b) => {
+              b.disabled = true;
+            });
+            window.LalaQuizUi?.showToast("¡Correcto!");
+            setTimeout(() => {
+              index += 1;
+              paint();
+            }, 700);
           } else {
             err.hidden = false;
             err.textContent = "Esa no es. Probad otra.";
             btn.classList.add("quiz-option-wrong");
+            window.LalaQuizUi?.shake(btn);
           }
         });
         host.appendChild(btn);
