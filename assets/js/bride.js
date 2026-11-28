@@ -613,6 +613,7 @@
     el("btn-done")?.addEventListener("click", onDone);
     el("btn-continue")?.addEventListener("click", onContinue);
     el("btn-reset")?.addEventListener("click", onReset);
+    el("btn-success-reset")?.addEventListener("click", onReset);
     el("btn-finish-ok")?.addEventListener("click", () => {
       burstConfetti();
     });

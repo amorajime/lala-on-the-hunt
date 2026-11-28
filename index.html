@@ -111,10 +111,21 @@
 
         <div class="panel complete-banner success-screen" id="all-done" hidden>
           <canvas id="confetti-canvas" class="confetti-canvas" aria-hidden="true"></canvas>
-          <div class="success-hero-mark" aria-hidden="true">
-            <span class="success-check">✓</span>
+          <div class="success-duck-hero">
+            <img
+              class="success-ducks"
+              src="assets/lala-duckies.png"
+              alt=""
+              width="589"
+              height="283"
+            />
+            <div class="success-duck-overlay">
+              <div class="success-hero-mark" aria-hidden="true">
+                <span class="success-check">✓</span>
+              </div>
+              <p class="success-eyebrow">Success</p>
+            </div>
           </div>
-          <p class="success-eyebrow">Success</p>
           <h2 id="success-title">The Hunt has been hunted</h2>
           <p id="success-lead" class="success-lead">
             Misión cumplida. Moods archivados, coches sorteados y Lala coronada. A comer.
@@ -122,6 +133,9 @@
           <div id="all-done-mood" class="success-mood-wrap"></div>
           <button type="button" class="btn btn-finish-wide" id="btn-finish-ok">
             Finish
+          </button>
+          <button type="button" class="btn-restart" id="btn-success-reset">
+            Reiniciar progreso
           </button>
         </div>
 
