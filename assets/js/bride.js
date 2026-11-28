@@ -514,7 +514,7 @@
 
     const trail = el("all-done-mood");
     if (trail) {
-      const html = window.LalaProgress.moodTrailHtml();
+      const html = window.LalaProgress.moodReceiptHtml();
       trail.innerHTML = html
         ? `<div class="success-mood-card">${html}</div>`
         : `<div class="success-mood-card"><p class="success-mood-empty">Sin moods guardados en este teléfono — igual habéis ganado.</p></div>`;

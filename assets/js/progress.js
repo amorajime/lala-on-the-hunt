@@ -111,8 +111,12 @@
     return `https://www.google.com/maps/search/?api=1&query=${q}`;
   }
 
+  function moodMeta(moodId) {
+    return (window.LALA_MOODS || []).find((x) => x.id === moodId) || null;
+  }
+
   function moodEmoji(moodId) {
-    const m = (window.LALA_MOODS || []).find((x) => x.id === moodId);
+    const m = moodMeta(moodId);
     return m ? m.emoji : "";
   }
 
@@ -126,6 +130,21 @@
     });
     if (!parts.length) return "";
     return `<div class="mood-trail" aria-label="Medidor de mood"><span class="mood-trail-label">Mood</span>${parts.join("")}</div>`;
+  }
+
+  function moodReceiptHtml() {
+    const { moods, completed } = read();
+    const rows = window.LALA_STOPS.filter(
+      (s) => completed.includes(s.id) && moods[s.id]
+    ).map((s) => {
+      const m = moodMeta(moods[s.id]);
+      const emoji = m ? m.emoji : "";
+      const label = m ? m.label : moods[s.id];
+      const stopLabel = s.shortTitle || s.code;
+      return `<div class="mood-receipt-row"><span class="mood-receipt-label">${stopLabel}</span><span class="mood-receipt-value"><span class="mood-receipt-emoji" aria-hidden="true">${emoji}</span>${label}</span></div>`;
+    });
+    if (!rows.length) return "";
+    return `<div class="mood-receipt" role="table" aria-label="Moods por parada">${rows.join("")}</div>`;
   }
 
   window.LalaProgress = {
@@ -145,5 +164,6 @@
     mapsUrl,
     moodEmoji,
     moodTrailHtml,
+    moodReceiptHtml,
   };
 })();
