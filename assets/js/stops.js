@@ -33,9 +33,9 @@ window.LALA_STOPS = [
     lat: 40.69513,
     lng: -3.51243,
     mapsQuery: "Plaza de la Constitución 1, Valdetorres de Jarama",
-    clue:
-      "Hemos preparado un Pasapalabra: repasad las reglas principales y… ¡que empiece el rosco!",
-    task: "Jugad al Pasapalabra con Lala en la plaza. Cuando terminéis, Hecho.",
+    clue: "Hemos preparado un Pasapalabra. ¡Que empiece el rosco!",
+    task:
+      "Reglas express: una letra → una respuesta · si no sabéis, ¡pasapalabra! · sin Google, sin pistas del público · gana quien haga reír a Lala (y acierte alguna).",
     garySlot: "Pasapalabra",
     garyPlaceholder:
       "Here you have passed Pasapalabra,\nBut this challenge was easy for you,\nA silly gameshow, not advanced algebra.\nOn to the next challenge with your crew.\n\nThe succeeding challenge may be physical in nature.\nDoes Valdetorres have a field, a court, a pitch?\nThis author doesn't know all sporting nomenclature,\nIs this all a clue, or a simple bait and switch?",

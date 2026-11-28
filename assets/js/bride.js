@@ -434,6 +434,58 @@
     renderMoodTrail();
   }
 
+  function burstConfetti() {
+    const canvas = el("confetti-canvas");
+    const screen = el("all-done");
+    if (!canvas || !screen) return;
+    const ctx = canvas.getContext("2d");
+    const rect = screen.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.floor(rect.width * dpr);
+    canvas.height = Math.floor(rect.height * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const w = rect.width;
+    const h = rect.height;
+    const colors = ["#c94b6a", "#f3a8b8", "#4f6f52", "#f0a45c", "#9bb896", "#fff6ee"];
+    const pieces = Array.from({ length: 110 }, () => ({
+      x: Math.random() * w,
+      y: -20 - Math.random() * h * 0.35,
+      r: 3 + Math.random() * 5,
+      vy: 2.2 + Math.random() * 3.4,
+      vx: -1.5 + Math.random() * 3,
+      rot: Math.random() * Math.PI,
+      vr: -0.2 + Math.random() * 0.4,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      shape: Math.random() > 0.5 ? "rect" : "circle",
+    }));
+    let frames = 0;
+    const maxFrames = 120;
+    function frame() {
+      frames += 1;
+      ctx.clearRect(0, 0, w, h);
+      pieces.forEach((p) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rot += p.vr;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.fillStyle = p.color;
+        if (p.shape === "circle") {
+          ctx.beginPath();
+          ctx.arc(0, 0, p.r * 0.7, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          ctx.fillRect(-p.r, -p.r * 0.4, p.r * 2, p.r * 0.8);
+        }
+        ctx.restore();
+      });
+      if (frames < maxFrames) requestAnimationFrame(frame);
+      else ctx.clearRect(0, 0, w, h);
+    }
+    requestAnimationFrame(frame);
+  }
+
   function showComplete() {
     el("stop-panel").hidden = true;
     el("start-banner").hidden = true;
@@ -451,7 +503,7 @@
       const html = window.LalaProgress.moodTrailHtml();
       trail.innerHTML = html
         ? `<div class="success-mood-card">${html}</div>`
-        : "";
+        : `<div class="success-mood-card"><p class="success-mood-empty">Sin moods guardados en este teléfono — igual habéis ganado.</p></div>`;
     }
 
     renderMarkers();
@@ -547,7 +599,7 @@
     el("btn-continue")?.addEventListener("click", onContinue);
     el("btn-reset")?.addEventListener("click", onReset);
     el("btn-finish-ok")?.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      burstConfetti();
     });
 
     hideMaps();
