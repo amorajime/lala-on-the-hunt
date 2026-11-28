@@ -134,17 +134,47 @@
 
   function moodReceiptHtml() {
     const { moods, completed } = read();
-    const rows = window.LALA_STOPS.filter(
+    const used = window.LALA_STOPS.filter(
       (s) => completed.includes(s.id) && moods[s.id]
-    ).map((s) => {
-      const m = moodMeta(moods[s.id]);
-      const emoji = m ? m.emoji : "";
-      const label = m ? m.label : moods[s.id];
-      const stopLabel = s.shortTitle || s.code;
-      return `<div class="mood-receipt-row"><span class="mood-receipt-label">${stopLabel}</span><span class="mood-receipt-value"><span class="mood-receipt-emoji" aria-hidden="true">${emoji}</span>${label}</span></div>`;
+    );
+    if (!used.length) return "";
+
+    const byMood = new Map();
+    used.forEach((s) => {
+      const moodId = moods[s.id];
+      if (!byMood.has(moodId)) byMood.set(moodId, []);
+      byMood.get(moodId).push(s.shortTitle || s.code);
     });
-    if (!rows.length) return "";
-    return `<div class="mood-receipt" role="table" aria-label="Moods por parada">${rows.join("")}</div>`;
+
+    const total = used.length;
+    const moodOrder = (window.LALA_MOODS || []).map((m) => m.id);
+    const groups = [...byMood.entries()]
+      .map(([moodId, stops]) => {
+        const m = moodMeta(moodId);
+        return {
+          moodId,
+          emoji: m ? m.emoji : "",
+          label: m ? m.label : moodId,
+          stops,
+          count: stops.length,
+          pct: Math.round((stops.length / total) * 100),
+          order: moodOrder.indexOf(moodId),
+        };
+      })
+      .sort((a, b) => b.count - a.count || a.order - b.order);
+
+    const rows = groups.map((g) => {
+      const places = g.stops.join(" · ");
+      return `<div class="mood-receipt-row">
+        <div class="mood-receipt-line">
+          <span class="mood-receipt-emoji" aria-hidden="true">${g.emoji}</span>
+          <span class="mood-receipt-pct">${g.pct}%</span>
+        </div>
+        <p class="mood-receipt-stops">${places}</p>
+      </div>`;
+    });
+
+    return `<div class="mood-receipt" role="table" aria-label="Reparto de moods">${rows.join("")}</div>`;
   }
 
   window.LalaProgress = {
