@@ -172,6 +172,7 @@
     const doneAll = el("all-done");
     doneAll.hidden = true;
     panel.hidden = true;
+    setSuccessChrome(false);
     if (startBanner) startBanner.hidden = false;
 
     hideAllExtras();
@@ -192,6 +193,7 @@
     const startBanner = el("start-banner");
     if (startBanner) startBanner.hidden = true;
     doneAll.hidden = true;
+    setSuccessChrome(false);
     panel.hidden = false;
     hideAllExtras();
 
@@ -274,8 +276,11 @@
         if (stop.isFinale) {
           setPhase(null);
           showComplete();
+        } else if (hasNextStop(stop)) {
+          setPhase("roulette", stop.id);
+          render();
         } else {
-          setPhase("gary", stop.id);
+          setPhase(null);
           render();
         }
       });
@@ -426,12 +431,21 @@
     el("gary-text").textContent = stop.garyPlaceholder;
 
     el("btn-continue").hidden = false;
-    el("btn-continue").textContent = hasNextStop(stop)
-      ? "Ruleta de coches"
-      : "Seguir";
+    el("btn-continue").textContent = "Seguir al mood";
 
     renderMarkers();
     renderMoodTrail();
+  }
+
+  function setSuccessChrome(on) {
+    const hide = Boolean(on);
+    ["hero", "map-stage", "mood-trail-host", "start-banner"].forEach((id) => {
+      const node = el(id);
+      if (node) node.hidden = hide;
+    });
+    document.querySelectorAll(".quest-head, .footer-tools").forEach((node) => {
+      node.hidden = hide;
+    });
   }
 
   function burstConfetti() {
@@ -488,10 +502,10 @@
 
   function showComplete() {
     el("stop-panel").hidden = true;
-    el("start-banner").hidden = true;
     const done = el("all-done");
     done.hidden = false;
     hideAllExtras();
+    setSuccessChrome(true);
 
     const title = el("success-title");
     const lead = el("success-lead");
@@ -505,9 +519,6 @@
         ? `<div class="success-mood-card">${html}</div>`
         : `<div class="success-mood-card"><p class="success-mood-empty">Sin moods guardados en este teléfono — igual habéis ganado.</p></div>`;
     }
-
-    renderMarkers();
-    renderMoodTrail();
   }
 
   function render() {
@@ -552,10 +563,11 @@
     const active = window.LalaProgress.activeStop();
     if (!active) return;
     window.LalaProgress.markDone(active.id);
+    /* Non-finale: Gary → mood → roulette. Finale: quiz → letter → mood. */
     if (active.isFinale) {
       setPhase("finale-quiz", active.id);
     } else {
-      setPhase("mood", active.id);
+      setPhase("gary", active.id);
     }
     render();
   }
@@ -568,8 +580,8 @@
       render();
       return;
     }
-    if (phase === "gary" && stop && hasNextStop(stop)) {
-      setPhase("roulette", stop.id);
+    if (phase === "gary" && stop) {
+      setPhase("mood", stop.id);
       render();
       return;
     }
@@ -581,6 +593,9 @@
     if (!confirm("¿Reiniciar el progreso de Lala en este teléfono?")) return;
     window.LalaProgress.reset();
     setPhase(null);
+    setSuccessChrome(false);
+    const done = el("all-done");
+    if (done) done.hidden = true;
     const task = el("stop-task");
     if (task) task.hidden = false;
     render();

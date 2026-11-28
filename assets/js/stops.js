@@ -20,7 +20,7 @@ window.LALA_STOPS = [
     garyPlaceholder:
       "Is the preceding line an absolute truth?\nWe can let tavern scholars debate over noon vermouth.\nThe vermouth may spill into a sobremesa,\nI would converse over empty plates forever with Teresa.\nYour first challenge has now concluded,\nMore to come with familiar conversation interluded.\nYour sister and friends are devout in their love for you,\nWhat a gift people take a lifetime to pursue.",
     hostTip:
-      "Aparcamiento cerca. Reto: canción + vídeo del baile (sin botón Bailar en la web). Tras Hecho: mood → nota Gary → ruleta A/B.",
+      "Aparcamiento cerca. Reto: canción + vídeo del baile. Tras Hecho: nota Gary → mood → ruleta A/B.",
     swapNote: null,
     soundtrack: true,
   },
@@ -35,12 +35,12 @@ window.LALA_STOPS = [
     mapsQuery: "Plaza de la Constitución 1, Valdetorres de Jarama",
     clue: "Hemos preparado un Pasapalabra. ¡Que empiece el rosco!",
     task:
-      "Reglas express: una letra → una respuesta · si no sabéis, ¡pasapalabra! · sin Google, sin pistas del público · gana quien haga reír a Lala (y acierte alguna).",
+      "Lala tiene 5 minutos para las 25 palabras. Si se atasca, diga «¡Pasapalabra!» y volvéis más tarde. Sin pistas y sin preguntar a nadie.",
     garySlot: "Pasapalabra",
     garyPlaceholder:
       "Here you have passed Pasapalabra,\nBut this challenge was easy for you,\nA silly gameshow, not advanced algebra.\nOn to the next challenge with your crew.\n\nThe succeeding challenge may be physical in nature.\nDoes Valdetorres have a field, a court, a pitch?\nThis author doesn't know all sporting nomenclature,\nIs this all a clue, or a simple bait and switch?",
     hostTip:
-      "Rosco / fichas listos. Plaza llana, sin entrar al Ayuntamiento. Tras Hecho: mood → nota Gary → ruleta A/B.",
+      "Rosco / fichas listos. Plaza llana. Tras Hecho: nota Gary → mood → ruleta A/B.",
     swapNote: null,
   },
   {
@@ -59,7 +59,7 @@ window.LALA_STOPS = [
     garyPlaceholder:
       "You've now joined the fraternity of Atleti greats,\nKoke, Torres, Griezmann, and now Mora shoulder the weights.\nWell done and hats off to you for completing this task,\nPerhaps your next challenge will have you speaking Basque?\nI hope you had fun hanging out north of Madrid,\nYou deserve a statue in your honor, like that of El Cid.",
     hostTip:
-      "Parking Cam. de la Vega, 20. Tras Hecho: mood → nota Gary → ruleta A/B → Ribs.",
+      "Parking Cam. de la Vega, 20. Tras Hecho: nota Gary → mood → ruleta A/B → Ribs.",
     swapNote: null,
   },
   {
@@ -77,7 +77,7 @@ window.LALA_STOPS = [
     garySlot: "Mi Alma",
     garyPlaceholder: "",
     hostTip:
-      "Reserva 7 · ~14:30. Flujo web: quiz → carta digital → mood → éxito.",
+      "Reserva 7 · ~14:30. Flujo web: quiz → carta → mood → éxito.",
     swapNote: null,
     isFinale: true,
   },
@@ -159,7 +159,7 @@ window.LALA_META = {
   startAddress: "Calle Jorge Manrique, 1 (Silillos)",
   startMapsQuery: "Calle Jorge Manrique 1, Valdetorres de Jarama",
   convoyNote:
-    "Convoy compartido: mismas paradas, dos coches. Tras Hecho: mood → nota Gary → ruleta A/B.",
+    "Convoy compartido: mismas paradas, dos coches. Tras Hecho: nota Gary → mood → ruleta A/B.",
   storageKey: "lala-on-the-hunt-progress-v2",
   authStorageKey: "lala-amigas-unlocked-v1",
   passwordHash:

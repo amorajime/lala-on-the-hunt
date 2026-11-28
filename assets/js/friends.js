@@ -79,7 +79,7 @@
       <h2>${escapeHtml(window.LALA_META.startAddress)}</h2>
       <p class="address">~13:15 · quiz de pareja → briefing · dos coches (A / B)</p>
       <p class="clue">${escapeHtml(window.LALA_META.convoyNote)}</p>
-      <p class="host-tip">Tras cada Hecho (excepto finale): mood → nota Gary → ruleta A/B. Finale: quiz → carta → mood → éxito.</p>
+      <p class="host-tip">Tras cada Hecho (excepto finale): nota Gary → mood → ruleta A/B. Finale: quiz → carta → mood → éxito.</p>
       <div class="actions">
         <a class="btn btn-maps btn-small" target="_blank" rel="noopener"
            href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(window.LALA_META.startMapsQuery)}">Abrir en Maps</a>
