@@ -2,7 +2,7 @@
 
 Static Spanish-language scavenger hunt site for Lala’s bachelorette in Valdetorres de Jarama.
 
-**Format:** shared convoy (2 cars, same stops) · bride unlocks one stop at a time · friends run a parallel play mode behind a password.
+**Format:** shared convoy (2 cars, same stops) · bride unlocks one stop at a time · friends run a parallel open play mode.
 
 ## Live URL
 
@@ -11,9 +11,7 @@ Static Spanish-language scavenger hunt site for Lala’s bachelorette in Valdeto
 | Route | Who | Notes |
 |---|---|---|
 | `/` or `/novia/` | Lala (bride) | Free-text quiz → challenge → Gary note → mood → roulette; finale: quiz → letter → mood → success |
-| `/amigas/` | Friends / hosts | Password gate → **play mode**: 4-option quizzes, Maps on every challenge, friend-facing challenge copy, Gary notes, wait card (bride spins), letter prompt (no full text), moods → success |
-
-**Friends password:** `LalaMala1` (client-side SHA-256 check — fine for a party toy, not real security).
+| `/amigas/` | Friends / hosts | Open **play mode** (no password): 4-option quizzes, Maps on every challenge, friend-facing challenge copy, Gary notes, wait card (bride spins), letter prompt (no full text), moods → success |
 
 **Amigas live:** https://amorajime.github.io/lala-on-the-hunt/amigas/
 
@@ -84,15 +82,9 @@ After each stop, pick 💚 / 😂 / 🥹. Bride uses `storageKey`; amigas play m
 
 Bride UI hides Maps; amigas show **Google Maps** on every challenge (and on the wait card for the next location).
 
-### Password hash
-
-`LALA_META.passwordHash` — SHA-256 hex of the friends password:
-
-```bash
-printf '%s' 'YourNewPassword' | sha256sum
-```
-
 Duckies: `assets/lala-duckies.png` · Styles: `assets/css/styles.css`.
+
+`auth.js` / `passwordHash` remain in the repo unused (amigas is open access).
 
 ## Stops (shared route)
 

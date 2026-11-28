@@ -16,43 +16,13 @@
   </head>
   <body data-asset-base="../assets">
     <main class="wrap">
-      <section class="gate" id="gate">
-        <img
-          id="duckies-img"
-          class="duckies-sm"
-          src="../assets/lala-duckies.png"
-          width="589"
-          height="283"
-          alt=""
-        />
-        <h1>Lala on the Hunt</h1>
-        <p>Modo amigas · no enseñéis esta pantalla a Lala.</p>
-        <form id="gate-form" autocomplete="off">
-          <label class="visually-hidden" for="password" style="position:absolute;left:-9999px"
-            >Contraseña</label
-          >
-          <input
-            id="password"
-            name="password"
-            type="password"
-            inputmode="text"
-            placeholder="Contraseña del grupo"
-            required
-            autofocus
-          />
-          <button class="btn btn-primary" type="submit">Entrar</button>
-          <p class="error" id="gate-error" role="status"></p>
-        </form>
-        <a class="link-quiet" href="../">Volver a la vista de Lala</a>
-      </section>
-
-      <section class="amigas-app" id="amigas-app" hidden>
+      <section class="amigas-app" id="amigas-app">
         <header class="hero" id="hero">
           <div class="hero-visual" aria-hidden="true">
             <div class="sky-blob a"></div>
             <div class="sky-blob b"></div>
             <img
-              id="duckies-hero"
+              id="duckies-img"
               class="duckies"
               src="../assets/lala-duckies.png"
               width="589"
@@ -169,7 +139,6 @@
           <div class="footer-tools">
             <a class="link-quiet" href="../">Vista novia</a>
             <button type="button" id="btn-reset">Reiniciar progreso amigas</button>
-            <button type="button" id="btn-lock">Cerrar sesión amigas</button>
           </div>
         </section>
       </section>
@@ -178,7 +147,6 @@
     <script src="../assets/js/stops.js"></script>
     <script src="../assets/js/progress.js"></script>
     <script src="../assets/js/map.js"></script>
-    <script src="../assets/js/auth.js"></script>
     <script src="../assets/js/friends.js"></script>
   </body>
 </html>

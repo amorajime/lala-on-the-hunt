@@ -585,8 +585,8 @@
   }
 
   function showApp() {
-    el("gate").hidden = true;
-    el("amigas-app").hidden = false;
+    const app = el("amigas-app");
+    if (app) app.hidden = false;
     const stage = el("map-stage");
     if (stage && window.LalaMap && !stage.dataset.mapReady) {
       stage.insertAdjacentHTML("afterbegin", window.LalaMap.renderSvg());
@@ -595,36 +595,10 @@
     render();
   }
 
-  async function onSubmit(e) {
-    e.preventDefault();
-    const input = el("password");
-    const err = el("gate-error");
-    err.textContent = "";
-    const ok = await window.LalaAuth.tryPassword(input.value);
-    if (!ok) {
-      err.textContent = "Contraseña incorrecta. Preguntad a Ana.";
-      input.select();
-      return;
-    }
-    showApp();
-  }
-
-  function onLock() {
-    window.LalaAuth.setUnlocked(false);
-    el("amigas-app").hidden = true;
-    el("gate").hidden = false;
-    el("password").value = "";
-    el("gate-error").textContent = "";
-  }
-
   function init() {
     const duck = el("duckies-img");
     if (duck) duck.src = `${assetBase}/lala-duckies.png`;
-    const heroDuck = el("duckies-hero");
-    if (heroDuck) heroDuck.src = `${assetBase}/lala-duckies.png`;
 
-    el("gate-form")?.addEventListener("submit", onSubmit);
-    el("btn-lock")?.addEventListener("click", onLock);
     el("btn-done")?.addEventListener("click", onDone);
     el("btn-continue")?.addEventListener("click", onContinue);
     el("btn-reset")?.addEventListener("click", onReset);
@@ -633,7 +607,7 @@
       burstConfetti();
     });
 
-    if (window.LalaAuth.isUnlocked()) showApp();
+    showApp();
   }
 
   document.addEventListener("DOMContentLoaded", init);
