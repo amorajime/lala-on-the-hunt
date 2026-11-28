@@ -612,6 +612,69 @@ img {
   font-size: 1.6rem;
 }
 
+.success-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1.1rem 1.4rem;
+  min-height: min(78dvh, 36rem);
+  justify-content: center;
+}
+
+.success-ducks {
+  width: min(78%, 16rem);
+  margin: 0 auto;
+  filter: drop-shadow(0 10px 18px rgba(30, 43, 36, 0.15));
+}
+
+.success-lead {
+  margin: 0;
+  max-width: 22rem;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+.success-mood-wrap {
+  width: 100%;
+}
+
+.success-mood-card {
+  margin: 0.25rem auto 0;
+  padding: 0.75rem 0.9rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(243, 168, 184, 0.28), rgba(155, 184, 150, 0.28));
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.success-mood-card .mood-trail {
+  margin: 0;
+  background: transparent;
+  justify-content: center;
+  padding: 0;
+}
+
+.letter-box {
+  margin-top: 0.85rem;
+  padding: 1rem 1.05rem;
+  border-radius: 0.9rem;
+  background: linear-gradient(160deg, rgba(255, 246, 238, 0.95), rgba(243, 168, 184, 0.18));
+  border: 1px dashed rgba(201, 75, 106, 0.4);
+}
+
+.letter-body,
+.gary-body {
+  margin: 0;
+  white-space: pre-line;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+#gary-text {
+  white-space: pre-line;
+}
+
 /* —— Quiz / soundtrack / mood / roulette —— */
 .quiz-box,
 .soundtrack-box,

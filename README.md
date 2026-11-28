@@ -10,7 +10,7 @@ Static Spanish-language scavenger hunt site for Lala’s bachelorette in Valdeto
 
 | Route | Who | Notes |
 |---|---|---|
-| `/` or `/novia/` | Lala (bride) | Quiz start → challenge → mood → Gary note → car roulette; finale: quiz → mood → success (no digital letter) |
+| `/` or `/novia/` | Lala (bride) | Quiz start → challenge → mood → Gary note → roulette; finale: quiz → letter → mood → success |
 | `/amigas/` | Friends / hosts | Password-gated full itinerary + host tips + mood trail |
 
 **Friends password:** `LalaMala1` (client-side SHA-256 check — fine for a party toy, not real security).
@@ -61,8 +61,12 @@ Answers are free-text; case and accents are normalized (`Rammstein` / `rammstein
 
 `window.LALA_SOUNDTRACK` in `stops.js`:
 
-- Live song: https://open.spotify.com/intl-es/track/3Y1F4btGQxxMZhlBYaLR4N  
-- Bride flow on parada 1: open Spotify → **Bailar 10s** → **Hecho**
+- Live song: https://open.spotify.com/track/1JLn8RhQzHz3qDqsChcmBl  
+- Bride: open Spotify link + film dance/lip-sync → **Hecho!** (no on-page countdown)
+
+### Finale letter
+
+`window.LALA_FINALE_LETTER` in `stops.js` — shown after finale quiz, before mood.
 
 ### Mood meter
 

@@ -36,8 +36,6 @@
   function hideMaps() {
     const maps = el("btn-maps");
     if (maps) maps.hidden = true;
-    const startMaps = el("btn-start-maps");
-    if (startMaps) startMaps.hidden = true;
   }
 
   function hideAllExtras() {
@@ -47,6 +45,7 @@
       "mood-box",
       "roulette-box",
       "finale-quiz",
+      "finale-letter",
       "gary-box",
     ].forEach((id) => {
       const node = el(id);
@@ -118,9 +117,9 @@
         return;
       }
       box.innerHTML = `
-        <p class="slot-label">${quiz.title} · ${index + 1}/${questions.length}</p>
+        <p class="slot-label">${quiz.title}</p>
         <p class="quiz-prompt">${q.prompt}</p>
-        <p class="ana-note">${quiz.anaNote || ""}</p>
+        ${quiz.anaNote ? `<p class="ana-note">${quiz.anaNote}</p>` : ""}
         <form class="quiz-form" autocomplete="off">
           <input
             class="quiz-input"
@@ -203,81 +202,46 @@
     el("stop-task").hidden = false;
     el("stop-task").textContent = active.task;
 
-    const verify = el("verify-flag");
-    if (active.needsVerify) {
-      verify.hidden = false;
-      verify.textContent =
-        "Pin provisional — Ana debe verificar ubicación y acceso.";
-    } else {
-      verify.hidden = true;
-    }
-
-    const swap = el("swap-note");
-    if (active.swapNote && !active.isFinale) {
-      swap.hidden = false;
-      swap.textContent = active.swapNote;
-    } else {
-      swap.hidden = true;
-    }
-
+    el("verify-flag").hidden = true;
+    el("swap-note").hidden = true;
     el("selfie-note").hidden = true;
     el("btn-done").hidden = false;
+    el("btn-done").disabled = false;
+    el("btn-done").textContent = "Hecho!";
     el("btn-continue").hidden = true;
     hideMaps();
 
     setupSoundtrack(active);
-
     renderMarkers();
     renderMoodTrail();
   }
 
+  /** Song link only — no Bailar countdown; Hecho always enabled. */
   function setupSoundtrack(active) {
     const box = el("soundtrack-box");
     const st = window.LALA_SOUNDTRACK;
-    const progress = window.LalaProgress.read();
     const needsSong =
       active && st && active.id === st.stopId && active.soundtrack;
 
     if (!needsSong) {
       box.hidden = true;
-      el("btn-done").disabled = false;
       return;
     }
 
     box.hidden = false;
-    el("soundtrack-title").textContent = st.title;
-    el("soundtrack-label").textContent = st.label;
-    el("soundtrack-link").href = st.url;
-    el("soundtrack-link").textContent = "Abrir canción (Spotify / YouTube)";
-    el("dance-status").textContent = progress.soundtrackDone
-      ? "¡Listas! Ya podéis pulsar Hecho."
-      : `Pulsad «Bailar ${st.danceSeconds}s» después de poner la canción.`;
+    const title = el("soundtrack-title");
+    const label = el("soundtrack-label");
+    const dance = el("btn-dance");
+    const status = el("dance-status");
+    if (title) title.hidden = true;
+    if (label) label.hidden = true;
+    if (dance) dance.hidden = true;
+    if (status) status.hidden = true;
 
-    const danceBtn = el("btn-dance");
-    danceBtn.textContent = `Bailar ${st.danceSeconds}s`;
-    danceBtn.hidden = progress.soundtrackDone;
-    el("btn-done").disabled = !progress.soundtrackDone;
-
-    danceBtn.onclick = () => {
-      if (danceBtn.dataset.running === "1") return;
-      danceBtn.dataset.running = "1";
-      let left = st.danceSeconds;
-      danceBtn.disabled = true;
-      const tick = () => {
-        el("dance-status").textContent = `Bailando… ${left}s`;
-        if (left <= 0) {
-          window.LalaProgress.markSoundtrackDone();
-          danceBtn.hidden = true;
-          danceBtn.dataset.running = "0";
-          el("dance-status").textContent = "¡Listas! Ya podéis pulsar Hecho.";
-          el("btn-done").disabled = false;
-          return;
-        }
-        left -= 1;
-        setTimeout(tick, 1000);
-      };
-      tick();
-    };
+    const link = el("soundtrack-link");
+    link.hidden = false;
+    link.href = st.url;
+    link.textContent = st.linkText || "Abrir canción en Spotify";
   }
 
   function showMood(stop) {
@@ -293,6 +257,7 @@
     el("stop-address").textContent = stop.title;
     el("stop-clue").textContent = "Elegid un mood para esta parada.";
     el("stop-task").textContent = "";
+    el("stop-task").hidden = true;
 
     const box = el("mood-box");
     box.hidden = false;
@@ -335,6 +300,7 @@
     el("stop-clue").textContent =
       "Girad la ruleta. Solo Coche A o Coche B — sin nombres.";
     el("stop-task").textContent = "";
+    el("stop-task").hidden = true;
 
     const box = el("roulette-box");
     box.hidden = false;
@@ -397,13 +363,13 @@
     el("stop-code").textContent = "Grand Finale · quiz";
     el("stop-title").textContent = "Una pregunta más";
     el("stop-address").textContent = stop.title;
-    el("stop-clue").textContent =
-      "Responded para revelar la última sorpresa (la carta está en la mesa).";
+    el("stop-clue").textContent = "Responded para revelar la última sorpresa.";
     el("stop-task").textContent = "";
+    el("stop-task").hidden = true;
 
     renderQuiz("finale-quiz", window.LALA_QUIZ.finale, () => {
       window.LalaProgress.markFinaleQuizPassed();
-      setPhase("mood", stop.id);
+      setPhase("finale-letter", stop.id);
       render();
     });
 
@@ -411,7 +377,34 @@
     renderMoodTrail();
   }
 
-  /** Gary note for non-finale stops only — no task text. */
+  function showFinaleLetter(stop) {
+    const panel = el("stop-panel");
+    panel.hidden = false;
+    el("all-done").hidden = true;
+    el("start-banner").hidden = true;
+    hideAllExtras();
+    clearPanelChrome();
+
+    const letter = window.LALA_FINALE_LETTER || {};
+    el("stop-code").textContent = "Grand Finale · carta";
+    el("stop-title").textContent = letter.title || "Carta de Gary";
+    el("stop-address").textContent = stop.title;
+    el("stop-clue").textContent = "";
+    el("stop-task").textContent = "";
+    el("stop-task").hidden = true;
+
+    const box = el("finale-letter");
+    box.hidden = false;
+    box.innerHTML = `<p class="letter-body"></p>`;
+    box.querySelector(".letter-body").textContent = letter.body || "";
+
+    el("btn-continue").hidden = false;
+    el("btn-continue").textContent = "Seguir al mood";
+
+    renderMarkers();
+    renderMoodTrail();
+  }
+
   function showGary(stop) {
     const panel = el("stop-panel");
     panel.hidden = false;
@@ -423,7 +416,7 @@
     el("stop-code").textContent = stop.code + " · hecho";
     el("stop-title").textContent = "¡Parada completada!";
     el("stop-address").textContent = stop.title;
-    el("stop-clue").textContent = "Una nota de Gary para Lala:";
+    el("stop-clue").textContent = "";
     el("stop-task").textContent = "";
     el("stop-task").hidden = true;
 
@@ -444,10 +437,23 @@
   function showComplete() {
     el("stop-panel").hidden = true;
     el("start-banner").hidden = true;
-    el("all-done").hidden = false;
+    const done = el("all-done");
+    done.hidden = false;
     hideAllExtras();
+
+    const title = el("success-title");
+    const lead = el("success-lead");
+    if (title) title.textContent = window.LALA_META.successTitle;
+    if (lead) lead.textContent = window.LALA_META.successLead;
+
     const trail = el("all-done-mood");
-    if (trail) trail.innerHTML = window.LalaProgress.moodTrailHtml();
+    if (trail) {
+      const html = window.LalaProgress.moodTrailHtml();
+      trail.innerHTML = html
+        ? `<div class="success-mood-card">${html}</div>`
+        : "";
+    }
+
     renderMarkers();
     renderMoodTrail();
   }
@@ -463,6 +469,10 @@
 
     if (phase === "finale-quiz" && stopId) {
       showFinaleQuiz(stopById(stopId));
+      return;
+    }
+    if (phase === "finale-letter" && stopId) {
+      showFinaleLetter(stopById(stopId));
       return;
     }
     if (phase === "mood" && stopId) {
@@ -489,17 +499,7 @@
   function onDone() {
     const active = window.LalaProgress.activeStop();
     if (!active) return;
-    const st = window.LALA_SOUNDTRACK;
-    if (
-      active.soundtrack &&
-      st &&
-      active.id === st.stopId &&
-      !window.LalaProgress.read().soundtrackDone
-    ) {
-      return;
-    }
     window.LalaProgress.markDone(active.id);
-    /* Finale: quiz before mood. Other stops: mood → Gary → roulette. */
     if (active.isFinale) {
       setPhase("finale-quiz", active.id);
     } else {
@@ -511,16 +511,17 @@
   function onContinue() {
     const { phase, stopId } = getPhase();
     const stop = stopById(stopId);
+    if (phase === "finale-letter" && stop) {
+      setPhase("mood", stop.id);
+      render();
+      return;
+    }
     if (phase === "gary" && stop && hasNextStop(stop)) {
       setPhase("roulette", stop.id);
       render();
       return;
     }
     setPhase(null);
-    if (stop && stop.isFinale) {
-      showComplete();
-      return;
-    }
     render();
   }
 
@@ -546,7 +547,7 @@
     el("btn-continue")?.addEventListener("click", onContinue);
     el("btn-reset")?.addEventListener("click", onReset);
     el("btn-finish-ok")?.addEventListener("click", () => {
-      el("all-done")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
     hideMaps();

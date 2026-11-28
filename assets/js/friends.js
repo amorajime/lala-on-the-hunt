@@ -53,14 +53,24 @@
     songCard.className = "leg";
     songCard.innerHTML = `
       <div class="stop-code">Banda sonora</div>
-      <h2>${escapeHtml(song.title)}</h2>
-      <p class="ana-note">${escapeHtml(song.label)}</p>
-      <p class="task">Tras abrir la canción: bailar ${song.danceSeconds}s → luego Hecho.</p>
+      <h2>Canción parada 1</h2>
+      <p class="task">Abrir Spotify + grabar baile/lip-sync (sin countdown en la web) → Hecho.</p>
       <div class="actions">
         <a class="btn btn-maps btn-small" target="_blank" rel="noopener" href="${escapeHtml(song.url)}">Abrir en Spotify</a>
       </div>
     `;
     host.appendChild(songCard);
+
+    const letter = window.LALA_FINALE_LETTER || {};
+    const letterCard = document.createElement("article");
+    letterCard.className = "leg";
+    letterCard.innerHTML = `
+      <div class="stop-code">Carta final</div>
+      <h2>${escapeHtml(letter.title || "Carta de Gary")}</h2>
+      <p class="host-tip">Se muestra tras el quiz del finale, antes del mood.</p>
+      <div class="letter-box"><p class="letter-body">${escapeHtml(letter.body || "")}</p></div>
+    `;
+    host.appendChild(letterCard);
 
     const start = document.createElement("article");
     start.className = "leg";
@@ -69,7 +79,7 @@
       <h2>${escapeHtml(window.LALA_META.startAddress)}</h2>
       <p class="address">~13:15 · quiz de pareja → briefing · dos coches (A / B)</p>
       <p class="clue">${escapeHtml(window.LALA_META.convoyNote)}</p>
-      <p class="host-tip">Tras cada Hecho (excepto finale): mood 💚😂🥹 + ruleta Coche A/B.</p>
+      <p class="host-tip">Tras cada Hecho (excepto finale): mood → nota Gary → ruleta A/B. Finale: quiz → carta → mood → éxito.</p>
       <div class="actions">
         <a class="btn btn-maps btn-small" target="_blank" rel="noopener"
            href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(window.LALA_META.startMapsQuery)}">Abrir en Maps</a>
@@ -103,10 +113,9 @@
       const car = progress.carSwaps[stop.id]
         ? `<p class="swap-note">Ruleta en este teléfono: Coche ${escapeHtml(progress.carSwaps[stop.id])}</p>`
         : "";
-      const songNote =
-        stop.soundtrack
-          ? `<p class="task">Incluye banda sonora + baile ${window.LALA_SOUNDTRACK.danceSeconds}s antes de Hecho.</p>`
-          : "";
+      const songNote = stop.soundtrack
+        ? `<p class="task">Incluye enlace Spotify; grabad baile/vídeo fuera de la web → Hecho.</p>`
+        : "";
       article.innerHTML = `
         <div class="stop-code">${escapeHtml(stop.code)}</div>
         <h2>${escapeHtml(stop.title)}</h2>

@@ -1,6 +1,6 @@
 /**
  * Lala on the Hunt — shared stop + party config
- * Edit Spanish copy, Maps pins, Gary notes, quiz Q&A, and song URL here.
+ * Edit Spanish challenges, Gary EN notes, quiz, song URL, finale letter here.
  * B3 parking/access: Cam. de la Vega, 20 (Ana confirmed).
  */
 window.LALA_STOPS = [
@@ -14,15 +14,14 @@ window.LALA_STOPS = [
     lng: -3.512548,
     mapsQuery: "Parque Julián González Rodríguez, Valdetorres de Jarama",
     clue:
-      "El pueblo os recibe con ritmo. Poned la canción de Gary, subid el volumen (con respeto al parque) y que el cuerpo haga el resto.",
-    task:
-      "Banda sonora: abrid la canción, bailad o haced lip-sync ~10s juntas — luego Hecho.",
-    garySlot: "Gary · nota 1",
+      "Gary ha seleccionado una canción. ¡Nosotras queremos verte bailar! Una vez que tengamos las pruebas (un vídeo), podemos continuar.",
+    task: "Abrid la canción, grabad el baile o lip-sync, y pulsad Hecho.",
+    garySlot: "Dancing is the poetry of the foot",
     garyPlaceholder:
-      "[Gary — escribe aquí la nota en inglés para el Parque. Aparece tras pulsar Hecho.]",
+      "Is the preceding line an absolute truth?\nWe can let tavern scholars debate over noon vermouth.\nThe vermouth may spill into a sobremesa,\nI would converse over empty plates forever with Teresa.\nYour first challenge has now concluded,\nMore to come with familiar conversation interluded.\nYour sister and friends are devout in their love for you,\nWhat a gift people take a lifetime to pursue.",
     hostTip:
-      "Aparcamiento para dos coches cerca. Caminos llanos. Reto: canción + baile/lip-sync. Tras Hecho: mood → nota Gary → ruleta A/B.",
-    swapNote: "Después de la nota de Gary: ruleta de coches (A o B).",
+      "Aparcamiento cerca. Reto: canción + vídeo del baile (sin botón Bailar en la web). Tras Hecho: mood → nota Gary → ruleta A/B.",
+    swapNote: null,
     soundtrack: true,
   },
   {
@@ -35,15 +34,14 @@ window.LALA_STOPS = [
     lng: -3.51243,
     mapsQuery: "Plaza de la Constitución 1, Valdetorres de Jarama",
     clue:
-      "El corazón del pueblo… y del abecedario. En la plaza, las amigas preparan un Pasapalabra express: letras, risas y cero escaleras.",
-    task:
-      "Pasapalabra de Lala: las amigas montan un Alphabet Game rápido en la plaza. Lala responde letra a letra — ¡pasapalabra si se atasca!",
-    garySlot: "Gary · nota 2",
+      "Hemos preparado un Pasapalabra: repasad las reglas principales y… ¡que empiece el rosco!",
+    task: "Jugad al Pasapalabra con Lala en la plaza. Cuando terminéis, Hecho.",
+    garySlot: "Pasapalabra",
     garyPlaceholder:
-      "[Gary — escribe aquí la nota en inglés para la Plaza / Ayuntamiento. Aparece tras pulsar Hecho.]",
+      "Here you have passed Pasapalabra,\nBut this challenge was easy for you,\nA silly gameshow, not advanced algebra.\nOn to the next challenge with your crew.\n\nThe succeeding challenge may be physical in nature.\nDoes Valdetorres have a field, a court, a pitch?\nThis author doesn't know all sporting nomenclature,\nIs this all a clue, or a simple bait and switch?",
     hostTip:
-      "Preparad el rosco / fichas del Alphabet Game antes de llegar. Plaza llana, sin entrar al Ayuntamiento. Tras Hecho: mood → nota Gary → ruleta A/B.",
-    swapNote: "Después de la nota de Gary: ruleta de coches (A o B).",
+      "Rosco / fichas listos. Plaza llana, sin entrar al Ayuntamiento. Tras Hecho: mood → nota Gary → ruleta A/B.",
+    swapNote: null,
   },
   {
     id: "b3",
@@ -55,14 +53,14 @@ window.LALA_STOPS = [
     lng: -3.51754,
     mapsQuery: "Cam. de la Vega 20, Valdetorres de Jarama",
     clue:
-      "Hoy el partido sois vosotras. Encontrad el campo de hierba — un sitio amplio para celebrar en movimiento (sin pisar el césped si está cerrado).",
-    task: "Lala posa imitando a su futbolista favorito delante del campo.",
-    garySlot: "Gary · nota 3",
+      "Retamos a la novia a hacerse una sesión de fotos posando como su futbolista favorito.",
+    task: "Sesión de fotos: Lala posa como su futbolista favorito delante del campo.",
+    garySlot: "Atleti greats",
     garyPlaceholder:
-      "[Gary — escribe aquí la nota en inglés para el campo de fútbol. Aparece tras pulsar Hecho.]",
+      "You've now joined the fraternity of Atleti greats,\nKoke, Torres, Griezmann, and now Mora shoulder the weights.\nWell done and hats off to you for completing this task,\nPerhaps your next challenge will have you speaking Basque?\nI hope you had fun hanging out north of Madrid,\nYou deserve a statue in your honor, like that of El Cid.",
     hostTip:
-      "Parking/acceso: Cam. de la Vega, 20. Tras Hecho: mood → nota Gary → ruleta A/B → American Ribs. Opcional: brindis de 30 s.",
-    swapNote: "Después de la nota de Gary: ruleta (A o B) → American Ribs.",
+      "Parking Cam. de la Vega, 20. Tras Hecho: mood → nota Gary → ruleta A/B → Ribs.",
+    swapNote: null,
   },
   {
     id: "finale",
@@ -75,23 +73,20 @@ window.LALA_STOPS = [
     mapsQuery: "American Ribs, Plaza de José Antonio 5, Valdetorres de Jarama",
     clue:
       "La caza de Lala está casi terminada. Sentémonos, pidamos algo de beber y respondamos una pregunta para revelar la última sorpresa.",
-    task:
-      "Sentaros, pedid bebida y pulsad Hecho — luego una pregunta desbloquea el final.",
-    garySlot: "Gary · sorpresa en mesa",
+    task: "Sentaros, pedid bebida y pulsad Hecho.",
+    garySlot: "Mi Alma",
     garyPlaceholder: "",
     hostTip:
-      "Reserva 7 · ~14:30–15:00. Carta impresa IRL (Gus). En la web: quiz → mood → mensaje de éxito (sin carta digital).",
+      "Reserva 7 · ~14:30. Flujo web: quiz → carta digital → mood → éxito.",
     swapNote: null,
     isFinale: true,
   },
 ];
 
-/** Shared couple questions — start gate + finale confirm (same two). */
 window.LALA_COUPLE_QUESTIONS = [
   {
     id: "q-concert",
     prompt: "¿Cuál fue el primer concierto al que fuiste con Gary?",
-    /* Accepted after normalize (case/accents/spaces) */
     answers: ["rammstein"],
   },
   {
@@ -105,25 +100,50 @@ window.LALA_QUIZ = {
   start: {
     id: "start",
     title: "Quiz de pareja · empezar",
-    /* Q1 only — Rammstein */
     questions: [window.LALA_COUPLE_QUESTIONS[0]],
     anaNote: "Escribid la respuesta (mayúsculas/minúsculas da igual).",
   },
   finale: {
     id: "finale",
-    title: "Quiz de pareja · carta y regalo",
-    /* Q2 only — Gossip Gang */
+    title: "Quiz de pareja · última sorpresa",
     questions: [window.LALA_COUPLE_QUESTIONS[1]],
-    anaNote: "Esta respuesta desbloquea el final (la carta está impresa en la mesa).",
+    anaNote: "Esta respuesta desbloquea la carta de Gary.",
   },
 };
 
 window.LALA_SOUNDTRACK = {
   stopId: "a1",
-  url: "https://open.spotify.com/intl-es/track/3Y1F4btGQxxMZhlBYaLR4N",
-  label: "Canción de Gary · parada 1 (Spotify)",
-  danceSeconds: 10,
-  title: "Banda sonora · parada 1",
+  url: "https://open.spotify.com/track/1JLn8RhQzHz3qDqsChcmBl?si=f29J7CKgRM-hlZ99QDOqKA",
+  linkText: "Abrir canción en Spotify",
+};
+
+window.LALA_FINALE_LETTER = {
+  title: "Carta de Gary",
+  body:
+    "Mi Alma,\n" +
+    "Congratulations on your completion of the first (and hopefully last) bachelorette\n" +
+    "scavenger “Hunt” of your life! I never doubted for a solitary moment that you couldn't do it. Shout\n" +
+    "out to Gus for organizing this tantalizing hunt.\n" +
+    "As for American Ribs, may I recommend the “American Cheese Fingers”, because I\n" +
+    "don't know what an american cheese finger is. For dessert, the “brownie Kinder” seems right up\n" +
+    "your alley.\n" +
+    "When I was asked to write the final letter that would serve as a culmination of sorts to\n" +
+    "this day, my first question to Gus was, “how much does this pay?” My second question asking\n" +
+    "for details about your bachelorette weekend! It sounds like you girls had a rousing time eating\n" +
+    "sushi, competing in the alcoholympics, and venturing through Valdetorres de Jarama in mad\n" +
+    "scientist guises.\n" +
+    "I was confident Gus and Las Chicas Cocodrilas would come through for you to throw you\n" +
+    "a delightful bachelorette weekend, even if you are already technically wed under the eyes of the\n" +
+    "law, both American and Felipe. I hope this weekend only invigorated your excitement for our\n" +
+    "ceremony in April in Boadilla del Monte, and our planned “mini-moon” on one of the various\n" +
+    "Greek Isles, perhaps Milos, Naxos, or Skiathos.\n" +
+    "I hope you have a pleasant Christmas in Madrid. I wish I could be there by your side, but\n" +
+    "but someone had to supervise Allison... I love you immensely with all my heart and I am eager\n" +
+    "to hear all about this bachelorette weekend when you return stateside to your husband and\n" +
+    "daughter in late December.\n" +
+    "\n" +
+    "All of my love and adoration,\n" +
+    "Gary",
 };
 
 window.LALA_MOODS = [
@@ -139,11 +159,13 @@ window.LALA_META = {
   startAddress: "Calle Jorge Manrique, 1 (Silillos)",
   startMapsQuery: "Calle Jorge Manrique 1, Valdetorres de Jarama",
   convoyNote:
-    "Convoy compartido: mismas paradas, dos coches solo por asientos. Tras cada Hecho: mood → nota Gary → ruleta Coche A/B.",
+    "Convoy compartido: mismas paradas, dos coches. Tras Hecho: mood → nota Gary → ruleta A/B.",
   storageKey: "lala-on-the-hunt-progress-v2",
   authStorageKey: "lala-amigas-unlocked-v1",
-  /* SHA-256 of the party password — not the plaintext */
   passwordHash:
     "32ed902afb2b16ed73c67d32f03480e95d2cb12c1dfa7e95bdfa6b8aa831d12e",
   cars: ["A", "B"],
+  successTitle: "The Hunt has been hunted",
+  successLead:
+    "Misión cumplida. Moods archivados, coches sorteados y Lala coronada. A comer.",
 };
